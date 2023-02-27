@@ -3,46 +3,6 @@
 </script>
 
 <template>
-  <div class="text-slate-100 h-screen grid grid-cols-3">
-    <div class="grid grid-rows-1 place-items-center fade-in opacity-0">
-      <p>Projects</p>
-      <RouterLink :to="{name: 'projects'}" class="grid place-items-center border-l aspect-square rounded-full w-32 hover:rotate-180 transition duration-300 fixed"></RouterLink>
-    </div>
-    <div class="grid grid-rows-3 place-items-center">
-      <div class="grid place-items-center fade-in opacity-0">
-        <p>Reach me</p>
-        <RouterLink :to="{name: 'reach'}" class="border-t aspect-square rounded-full w-32 hover:rotate-180 transition duration-300 fixed"></RouterLink>
-      </div>
-      <div class="">Hi! Welcome to my portfolio.</div>
-      <div class="grid place-items-center fade-in opacity-0">
-        <p>Hobbies</p>
-        <RouterLink :to="{name: 'hobbies'}" class="border-b aspect-square rounded-full w-32 hover:rotate-180 transition duration-300 fixed"></RouterLink>
-      </div>
-    </div>
-    <div class="grid grid-rows-1 place-items-center fade-in opacity-0">
-        <p>CV</p>
-        <RouterLink :to="{name: 'cv'}" class="grid place-items-center border-r aspect-square rounded-full w-32 hover:rotate-180 transition duration-300 fixed"></RouterLink>
-    </div>
-  </div>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias delectus a dignissimos, repellat dolorum similique sed dolorem esse facere quidem eum blanditiis, est dolor dolores voluptatum. At, natus amet. Inventore harum, facilis ratione deserunt fuga dolorum debitis doloremque, officia, tempora illum at voluptate! Quasi aliquid veritatis sunt quae illum reiciendis consequuntur magni! Nulla ut esse nesciunt commodi eveniet! Sit illo praesentium voluptatem, doloribus dolor aliquid porro soluta vero veritatis dolorum voluptate sunt numquam, consectetur nesciunt unde nisi optio cum, beatae nostrum eius. Officia laborum asperiores corrupti sunt, exercitationem atque inventore quos architecto quidem, qui, voluptates consequuntur deserunt? Voluptatum, rerum molestias?
+  </p>
 </template>
-
-<style scoped>
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-.fade-in {
-  animation-name: fade-in;
-  animation-duration: 2s;
-  animation-fill-mode: forwards;
-  animation-delay: 1.5s;
-}
-
-
-</style>

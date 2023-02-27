@@ -7,10 +7,16 @@ const props = defineProps({
 </script>
 
 <template>
-  <div v-if="centered" class="min-h-screen grid place-content-center bg-slate-700">
+  <div v-if="centered" class="min-h-screen grid place-content-center background">
     <slot></slot>
   </div>
-  <div v-else class="min-h-screen bg-slate-700">
+  <div v-else class="min-h-screen pt-12 background">
     <slot></slot>
   </div>
 </template>
+
+<style scoped>
+.background{
+  background-color: #334155;
+}
+</style>
