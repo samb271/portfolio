@@ -10,9 +10,21 @@ import Header from '../src/components/Header.vue'
   </div>
 </template>
 
-<style scoped>
+<style>
 .background {
   background-color: #334155;
+}
+
+@font-face {
+  font-family: "Parabole Display";
+  src: local("Parabole"),
+    url(./assets/fonts/Parabole/ParaboleTrial-DisplayRegular.otf);
+}
+
+@font-face {
+  font-family: "Parabole Text";
+  src: local("Parabole"),
+    url(./assets/fonts/Parabole/ParaboleTrial-TextRegular.otf);
 }
 </style>
 
