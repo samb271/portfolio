@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <div class="mx-10">
+  <div class="md:mx-16 mx-8">
     <slot></slot>
   </div>
 </template>
