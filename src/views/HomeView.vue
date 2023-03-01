@@ -2,6 +2,7 @@
 import Home from '../components/Home.vue'
 import Page from '../components/Page.vue'
 import Container from '@/components/Container.vue';
+import Work from '@/components/Work.vue';
 </script>
 
 <template>
