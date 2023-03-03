@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <p class="title text-white ">
+  <p class="title text-white mb-8">
     <slot></slot>
   </p>
 </template>
