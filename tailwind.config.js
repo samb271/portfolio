@@ -6,6 +6,20 @@ module.exports = {
   ],
   theme: {
     extend: {},
+    colors: {
+      text: {
+        'primary': '#FFFFFF',
+        'secondary': '#D0D0D0'
+      },
+      navbar: {
+        'text': '#000000',
+        'background': '#D9D9D9',
+        'textSelected': '#FFFFFF',
+        'contrast': '#000000'
+      },
+      'background': '#334155',
+      'titlePill': '#5DA432'
+    }
   },
   plugins: [],
 }
