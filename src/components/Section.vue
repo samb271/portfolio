@@ -7,7 +7,7 @@ const { time } = defineProps({
 </script>
 
 <template>
-  <p class="section text-4xl text-text-primary flex border mt-20">
+  <p class="section text-4xl text-text-primary flex mt-20">
     <slot></slot>
     <p v-if="time" class="text-lg pl-3">{{ time }}</p>
   </p>
