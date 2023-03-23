@@ -5,11 +5,14 @@ import Container from './Container.vue';
 <template>
   <div class="fixed w-full md:px-16 px-8 pt-2 text-text-primary bg-background header">
     <div class="h-12 flex justify-between place-items-center">
-      <div>Samuel Barbeau</div>
       <div class="flex flex-row">
-        <p>Engish</p>
+        <p class="mr-4 min-w-max">Samuel Barbeau</p>
+        <img src="../assets/svg/samb.svg" class="h-7">
+      </div>
+      <div class="flex flex-row">
+        <a href="#">Engish</a>
         <p class="px-2">/</p>
-        <p>Français</p>
+        <a href="#">Français</a>
       </div>
     </div>
     <div class="border-b border-white"></div>
