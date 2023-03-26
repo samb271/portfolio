@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <p class="title text-text-primary">
+  <p class="title text-text-primary mt-40">
     <slot></slot>
   </p>
 </template>
