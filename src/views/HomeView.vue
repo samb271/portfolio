@@ -4,6 +4,7 @@ import Page from '../components/Page.vue'
 import Container from '@/components/Container.vue';
 import Work from '@/components/Work.vue';
 import Projects from '@/components/Projects.vue';
+import Play from '@/components/Play.vue';
 </script>
 
 <template>
@@ -12,9 +13,8 @@ import Projects from '@/components/Projects.vue';
       <Container>
         <Home />
         <Work />
-        <div class="h-40"></div>
         <Projects />
-        <Fun />
+        <Play />
       </Container>
     </Page>
   </main>
