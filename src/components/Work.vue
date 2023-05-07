@@ -6,31 +6,39 @@ import Text from './Text.vue';
 </script>
 
 <template>
-  <Title>Work</Title>
+  <Title class="mt-8">Work</Title>
 
   <!-- PHS -->
 
+
   <Section time="2020 - 2023">Powerhealth Solutions</Section>
-  <div class="flex">
-    <Pill border-color="border-[#42B883]" color="bg-[#143929]">Vue 3</Pill>
-    <Pill border-color="border-[#ED8A80]" color="bg-[#502E2B]">Feathers</Pill>
-    <Pill border-color="border-[#3178C6]" color="bg-[#122C49]">Typescript</Pill>
-    <Pill border-color="border-[#E1CB00]" color="bg-[#453E00]">MSSQL</Pill>
-  </div>
-  <div class="flex flex-row pb-8 justify-between">
-    <div class="max-w-xl">
-      <Text title="Full stack developper" year="2022">Developed a file submission application allowing medical
+
+  <div class="flex xl:flex-row gap-16 flex-col pb-8">
+    <div class="grow pr-8">
+
+      <div class="flex">
+        <Pill border-color="border-[#42B883]" color="bg-[#143929]">Vue 3</Pill>
+        <Pill border-color="border-[#ED8A80]" color="bg-[#502E2B]">Feathers</Pill>
+        <Pill border-color="border-[#3178C6]" color="bg-[#122C49]">Typescript</Pill>
+        <Pill border-color="border-[#E1CB00]" color="bg-[#453E00]">MSSQL</Pill>
+      </div>
+
+      <Text title="Full stack developper" year="2022">Designed, developed and documented a file submission application
+        allowing medical
         establishments to submit financial and clinical
         data
-        online. Respects the government of Québec’s CRIM safety standards and implements a user hierarchy with different
-        permissions.</Text>
-      <Text title="QA" year="2021">Implemented automatized testing for a web app using Cypress, a Javascript framework.
+        online. Respects the government of Québec’s CRIM safety standards and implements a user hierarchy for the
+        management of restricted collaborator groups. Uses Azure for file upload.</Text>
+      <Text title="QA" year="2021">Implemented automatized testing for a web app using Cypress.
         Developed SQL scripts and queries for data extraction, analysis and validation.</Text>
       <Text title="Documentation" year="2020">Oversaw and produced the documentation of all new PHS products under the
         specifications and standards of the
         Ministry of Health.</Text>
     </div>
-    <img src="../assets/png/SSEL_mockup.png" alt="" class="mt-16 object-scale-down max-w-xl">
+    <div class="grow max-w-6xl h-fit my-auto">
+      <img src="../assets/png/ssel_group.png" alt="" class="object-scale-down">
+    </div>
+
   </div>
 
 

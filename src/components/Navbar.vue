@@ -4,9 +4,9 @@
 
 <template>
   <div id="navbar" class="navbar z-50 fixed bottom-10 h-12 w-full max-w-sm flex rounded-full">
-    <div class="w-28 mx-2 my-2 bg-navbar-contrast text-navbar-textSelected text-xl text-center rounded-full grid place-items-center">Work</div>
-    <div class="w-28 mx-2 my-2 text-xl text-center grid place-items-center">Projects</div>
-    <div class="w-28 mx-2 my-2 text-xl text-center grid place-items-center">Play</div>
+    <div class="w-28 mx-2 my-2 hover:bg-navbar-contrast active:bg-navbar-contrast hover:text-navbar-textSelected transition cursor-pointer text-xl text-center rounded-full grid place-items-center">Work</div>
+    <div class="w-28 mx-2 my-2 text-xl text-center grid place-items-center rounded-full hover:bg-navbar-contrast active:bg-navbar-contrast hover:text-navbar-textSelected transition cursor-pointer">Projects</div>
+    <div class="w-28 mx-2 my-2 text-xl text-center grid place-items-center hover:bg-navbar-contrast active:bg-navbar-contrast hover:text-navbar-textSelected transition cursor-pointer rounded-full">Play</div>
   </div>
 </template>
 

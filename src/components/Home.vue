@@ -3,8 +3,8 @@
 </script>
 
 <template>
-  <div class="home flex flex-col justify-center">
-    <p class="text-8xl mb-6 w-full max-w-7xl welcomeTitle">Hi! I'm <span class="sam">Sam</span>, Montreal based <span class="bg-titlePill rounded-[40px] px-6">software</span> engineer.</p>
+  <div class="home flex flex-col gap-6 justify-center">
+    <p class="text-8xl w-full max-w-7xl welcomeTitle">Hi! I'm <span class="sam">Sam</span>, Montreal based <span class="bg-titlePill rounded-[40px] px-6">software</span> engineer.</p>
     <p class="welcomeSubtext text-3xl mt-24">Welcome to my portfolio</p>
   </div>
 </template>

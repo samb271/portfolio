@@ -16,18 +16,24 @@ import Pill from './Pill.vue';
   <div class="flex">
     <Pill border-color="border-[#7DFFFF]" color="bg-[#1F4242]">Ableton</Pill>
   </div>
-  <div class="xl:flex pb-8">
-    <span>
-      <Text>Music is one of the pillars of my life. My father can’t go a minute without listening to one of his countless
-        records, and so growing up I was constantly being exposed to all different types of sound. Around my teens,
-        curiosity got the best of me and I decided to give music production a shot. It gradually evolved into me releasing
-        electronic music with labels from all around the world.</Text>
-    </span>
-    <div class="xl:-translate-y-32 xl:mt-0 mt-16 xl:pl-[7.5vw] flex flex-row img-container w-full xl:max-w-2xl justify-between">
-      <img src="../assets/jpg/clovis.jpg" alt="clovis" class="w-56 z-10">
-      <img src="../assets/jpg/fcukRemix.jpg" alt="fcukRemix" class=" w-56 xl:absolute z-20 xl:translate-x-[8vw] xl:translate-y-[100px]">
-      <img src="../assets/jpg/sumer.jpg" alt="sumer" class="w-56 xl:absolute z-30 xl:translate-x-[16vw] xl:translate-y-[200px]">
-      <img src="../assets/jpg/scablands.jpg" alt="scablands" class="w-56 xl:absolute z-40 xl:translate-x-[24vw] xl:translate-y-[300px]">
+  <div class="gap-16">
+    <Text>Music is one of the pillars of my life. My father can’t go a minute without listening to one of his countless
+      records, and so growing up I was constantly being exposed to all different types of sound. Around my teens,
+      curiosity got the best of me and I decided to give music production a shot. It gradually evolved into me releasing
+      electronic music with labels from all around the world.</Text>
+    <div class="mt-16 mx-auto flex flex-row gap-8 w-full">
+      <div class="">
+        <img src="../assets/jpg/clovis.jpg" alt="clovis" class="">
+      </div>
+      <div class="grow">
+        <img src="../assets/jpg/fcukRemix.jpg" alt="fcukRemix" class="z-20">
+      </div>
+      <div class="grow">
+        <img src="../assets/jpg/sumer.jpg" alt="sumer" class="z-30">
+      </div>
+      <div class="grow">
+        <img src="../assets/jpg/scablands.jpg" alt="scablands" class="z-40">
+      </div>
     </div>
   </div>
 
@@ -42,7 +48,7 @@ import Pill from './Pill.vue';
       <Text>I'm most likely more agile on two wheels than I am on two feet. I started riding mountain bikes at 14 years
         old,
       </Text>
-      <img src="../assets/jpg/cycling.jpg" alt="cycling" class="w-1/2">
+      <img src="../assets/jpg/cycling.jpg" alt="cycling" class="w-full">
     </span>
   </div>
 </template>
