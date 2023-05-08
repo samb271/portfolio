@@ -6,7 +6,7 @@ import Pill from './Pill.vue';
 </script>
 
 <template>
-  <Title>Play</Title>
+  <Title id="play">Play</Title>
 
   <Text>Time off the computer is just as important to me as time on the computer. Here are a few things I like to do to
     keep my mind fresh.

@@ -6,7 +6,7 @@ import Text from './Text.vue';
 </script>
 
 <template>
-  <Title class="mt-8">Work</Title>
+  <Title id="work" class="mt-8">Work</Title>
 
   <!-- PHS -->
 

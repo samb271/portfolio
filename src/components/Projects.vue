@@ -6,9 +6,9 @@ import Text from './Text.vue';
 </script>
 
 <template>
-  <Title>Projects</Title>
+  <Title id="projects">Projects</Title>
 
-  <div class="grid grid-cols-2 gap-16">
+  <div class="xl:grid xl:grid-cols-2 gap-16">
 
     <div>
       <Section time="2022">Lines of Action</Section>
@@ -47,7 +47,7 @@ import Text from './Text.vue';
     </div>
 
     <div>
-      <Section time="2022">Dungeon Slayer</Section>
+      <Section class="mt-8" time="2022">Gobekli</Section>
       <div class="flex">
         <Pill border-color="border-[#C74C00]" color="bg-[#3E1800]">Rust</Pill>
       </div>
