@@ -17,39 +17,39 @@ import Pill from '../Pill.vue';
     <Pill border-color="border-[#7DFFFF]" color="bg-[#1F4242]">Ableton</Pill>
   </div>
   <div class="gap-16">
-    <Text>Music is one of the pillars of my life. My father can’t go a minute without listening to one of his countless
-      records, and so growing up I was constantly being exposed to all different types of sound. Around my teens,
-      curiosity got the best of me and I decided to give music production a shot. It gradually evolved into me releasing
-      electronic music with labels from all around the world.</Text>
+    <Text>Music has always held a special place in my heart. Growing up, my dad's record collection introduced me to a
+      wide variety of sounds. When I was a teenager, I decided to try my hand at music production. A few years later, I
+      was able to release my own tracks through various record labels across the world.</Text>
     <div class="mt-16 mx-auto flex flex-row gap-8 w-full">
-      <div class="">
+      <a href="https://gobekli.bandcamp.com/album/clovis" class="grow">
         <img src="../../assets/jpg/clovis.jpg" alt="clovis" class="">
-      </div>
-      <div class="grow">
+      </a>
+      <a href="https://causalchain.bandcamp.com/track/fcuk-gobekli-remix" class="grow">
         <img src="../../assets/jpg/fcukRemix.jpg" alt="fcukRemix" class="z-20">
-      </div>
-      <div class="grow">
+      </a>
+      <a href="https://causalchain.bandcamp.com/track/gobekli-sumer" class="grow">
         <img src="../../assets/jpg/sumer.jpg" alt="sumer" class="z-30">
-      </div>
-      <div class="grow">
+      </a>
+      <a href="https://cloudcore.bandcamp.com/album/scablands" class="grow">
         <img src="../../assets/jpg/scablands.jpg" alt="scablands" class="z-40">
-      </div>
+      </a>
     </div>
   </div>
 
   <Section time="2011 - Current">Cyclig</Section>
-  <div class="flex">
-    <Pill border-color="border-[#026E00]" color="bg-[#012600]">Node.js</Pill>
-    <Pill border-color="border-[#3178C6]" color="bg-[#122C49]">Typescript</Pill>
-    <Pill border-color="border-[#A9A9A9]" color="bg-[#373737]">Express</Pill>
-  </div>
-  <div class="flex pb-8">
-    <span>
-      <Text>I'm most likely more agile on two wheels than I am on two feet. I started riding mountain bikes at 14 years
-        old,
-      </Text>
-      <img src="../../assets/jpg/cycling.jpg" alt="cycling" class="w-full">
-    </span>
+
+  <div class="flex flex-col pb-8">
+    <Text>I'm most likely more agile on two wheels than I am on two feet. I started riding mountain bikes at 14 years
+      old and it didn't take long for me to take an interest in racing. I participated in provincial cups until an
+      injury led me to leave the competitive scene behind. It has since been my way of keeping my physical and mental
+      health in check, in addition to nurturing my connection with nature. More recently, I've also gotten into road
+      cycling. In 2019, I took part in the "Défi Bonneville": 400km over 2 days to raise money for children sports
+      programs in impoverished neighborhoods.
+    </Text>
+
+    <div class="mt-16 grid place-content-center">
+      <img src="../../assets/jpg/cycling.jpg" alt="cycling">
+    </div>
   </div>
 </template>
 
