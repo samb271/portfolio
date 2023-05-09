@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { computed, watch, ref } from 'vue';
 
-
 const parentDivWidth = ref(0)
 const avatarWidth = ref(0)
 const maxLeftPosition = ref(0)

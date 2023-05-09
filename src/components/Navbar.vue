@@ -1,13 +1,13 @@
 <script setup lang="ts">
-
+import NavbarItem from './NavbarItem.vue';
 </script>
 
 <template>
   <div id="navbar" class="navbar z-50 fixed bottom-10 w-fit px-2 flex gap-2 justify-center rounded-full">
-    <a href="#work" class="w-28 px-4 py-1 my-2 hover:bg-navbar-contrast active:bg-navbar-contrast hover:text-text-secondary transition cursor-pointer text-lg text-center rounded-full">Work</a>
-    <a href="#projects" class="w-28 px-4 py-1 my-2 text-lg text-center rounded-full hover:bg-navbar-contrast active:bg-navbar-contrast hover:text-text-secondary transition cursor-pointer">Projects</a>
-    <a href="#play" class="w-28 px-4 py-1 my-2 text-lg text-center hover:bg-navbar-contrast active:bg-navbar-contrast hover:text-text-secondary transition cursor-pointer rounded-full">Play</a>
-    <a href="mailto:samuelpbarbeau@gmail.com" class="w-28 px-4 py-1 my-2 text-lg text-center hover:bg-navbar-contrast active:bg-navbar-contrast hover:text-text-secondary transition cursor-pointer rounded-full">Contact</a>
+    <NavbarItem link="#work">Work</NavbarItem>
+    <NavbarItem link="#projects">Projects</NavbarItem>
+    <NavbarItem link="#play">Play</NavbarItem>
+    <NavbarItem link="mailto:samuelpbarbeau@gmail.com">Contact</NavbarItem>
   </div>
 </template>
 
