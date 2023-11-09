@@ -13,7 +13,8 @@ import NavbarItem from './NavbarItem.vue';
 
 <style scoped>
 .navbar{
-  background-color: #D9D9D9;
+  background-color: #D9D9D9E0;
+  backdrop-filter: blur(2px);
   left: 50%;
   transform: translate(-50%, 0);
 }
