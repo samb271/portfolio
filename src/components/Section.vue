@@ -11,7 +11,7 @@ const { time } = defineProps({
   <div class="">
     <slot></slot>
   </div>
-  <p v-if="time" class="text-lg pl-3">{{ time }}</p>
+  <p v-if="time" class="lg:text-lg text-sm pl-3">{{ time }}</p>
   </p>
 </template>
 
