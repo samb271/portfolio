@@ -68,7 +68,7 @@ const getImageUrl = (id: string) => {
       </div>
 
       <div>
-        <Section time="2011 - Current">Cyclig</Section>
+        <Section time="2011 - Current">Cycling</Section>
 
         <div class="flex flex-col xl:flex-row gap-16">
           <Text>I'm most likely more agile on two wheels than I am on two feet. I started riding mountain bikes at 14
