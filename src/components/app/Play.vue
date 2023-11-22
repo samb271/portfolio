@@ -47,7 +47,7 @@ const getImageUrl = (id: string) => {
           <Pill border-color="border-[#7DFFFF]" color="bg-[#1F4242]">Ableton</Pill>
         </div>
         <div class="gap-16">
-          <Text>Via various aliases, I've released music on record labels across the globe, grossing tens of thousand of streams. I've also organized and played in multiple concerts.</Text>
+          <Text>Via various aliases, I've released music on record labels across the globe, grossing tens of thousand of streams. I've also organized and played multiple concerts.</Text>
 
           <div class="sm:-mx-16 -mx-6">
             <div class="mt-16 flex flex-row gap-8 gap-6 mx-auto">
