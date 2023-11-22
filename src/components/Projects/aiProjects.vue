@@ -42,7 +42,7 @@ const isLinesOfActionVisible = ref(false);
         </div>
         <div v-if="isAgePredictionVisible" class="grow max-h-fit flex flex-col items-center">
           <img class="max-w-xs" src="../../assets/ai/agePrediction.png" alt="">
-          <div class="mt-3 text-text-secondary">
+          <div class="mt-3 text-text-secondary lg:text-base text-xs">
             Age prediction
           </div>
         </div>
@@ -75,8 +75,8 @@ const isLinesOfActionVisible = ref(false);
           </div>
         </div>
         <div v-if="isEmotionPredictionVisible" class="grow max-h-fit flex flex-col items-center my-auto">
-          <img class="max-w-lg" src="../../assets/ai/emotionPrediction.png" alt="">
-          <div class="mt-3 text-text-secondary">
+          <img class="lg:max-w-lg" src="../../assets/ai/emotionPrediction.png" alt="">
+          <div class="mt-3 text-text-secondary lg:text-base text-xs">
             Emotion prediction
           </div>
         </div>
@@ -136,8 +136,8 @@ const isLinesOfActionVisible = ref(false);
           </div>
         </div>
         <div v-if="isShapeRecognitionVisible" class="grow max-h-fit flex flex-col items-center my-auto">
-          <img class="max-w-sm" src="../../assets/ai/shapeRecognitionOutline.png" alt="">
-          <div class="mt-3 text-text-secondary">
+          <img class="lg:max-w-sm" src="../../assets/ai/shapeRecognitionOutline.png" alt="">
+          <div class="mt-3 text-text-secondary lg:text-base text-xs">
             Shape recognition
           </div>
         </div>

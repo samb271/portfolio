@@ -19,7 +19,9 @@ const { title } = defineProps({
         <div class="bg-text-secondary w-1.5 h-1.5 rounded-sm mt-1 mx-2.5"></div>
         <p>{{ year }}</p>
       </div>
-      <slot></slot>
+      <div class="">
+        <slot></slot>
+      </div>
     </div>
   </template>
   <template v-else>
@@ -27,7 +29,9 @@ const { title } = defineProps({
       <div v-if="title" class="text-text-primary pb-4 flex flex-row items-center text-2xl">
         <p>{{ title }}</p>
       </div>
-      <slot></slot>
+      <div class="">
+        <slot></slot>
+      </div>
     </div>
   </template>
 </template>

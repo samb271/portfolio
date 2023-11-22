@@ -57,8 +57,8 @@ window.addEventListener('scroll', () => {
 </script>
 
 <template>
-  <div class="fixed w-full sm:px-16 sm:text-base text-xs sm:px-8 px-6 pt-2 text-text-primary bg-background header z-50">
-    <div class="sm:h-12 h-8 flex place-items-center">
+  <div class="fixed w-full sm:px-16 px-8 sm:text-base text-xs pt-2 text-text-primary bg-background header z-50">
+    <div class="sm:h-12 h-10 flex place-items-center">
       <div>
         <p class="min-w-max">Samuel Barbeau</p>
       </div>

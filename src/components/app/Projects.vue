@@ -35,19 +35,19 @@ function setSelectedTab(tab: string) {
         <TabList class="flex gap-3 rounded-full bg-[#273141] px-3 py-2">
           <Tab class="focus:outline-none focus:ring-0" v-slot="{ selected }">
             <button @click="setSelectedTab('AI')"
-              :class="['w-24 p-2 rounded-full font-xl', selected ? 'bg-[#E5E5E5] text-[#273141] shadow' : 'text-[#D0D0D0] hover:bg-white/[0.12] hover:text-white']">
+              :class="['lg:w-24 w-16 lg:p-2 p-1 rounded-full lg:text-base text-sm', selected ? 'bg-[#E5E5E5] text-[#273141] shadow' : 'text-[#D0D0D0] hover:bg-white/[0.12] hover:text-white']">
               AI
             </button>
           </Tab>
           <Tab class="focus:outline-none focus:ring-0" v-slot="{ selected }">
             <button @click="setSelectedTab('Web')"
-              :class="['w-24 p-2 rounded-full font-xl', selected ? 'bg-[#E5E5E5] text-[#273141] shadow' : 'text-[#D0D0D0] hover:bg-white/[0.12] hover:text-white']">
+              :class="['lg:w-24 w-16 lg:p-2 p-1 rounded-full lg:text-base text-sm', selected ? 'bg-[#E5E5E5] text-[#273141] shadow' : 'text-[#D0D0D0] hover:bg-white/[0.12] hover:text-white']">
               Web
             </button>
           </Tab>
           <Tab class="focus:outline-none focus:ring-0" v-slot="{ selected }">
             <button @click="setSelectedTab('Other')"
-              :class="['w-24 p-2 rounded-full font-xl', selected ? 'bg-[#E5E5E5] text-[#273141] shadow' : 'text-[#D0D0D0] hover:bg-white/[0.12] hover:text-white']">
+              :class="['lg:w-24 w-16 lg:p-2 p-1 rounded-full lg:text-base text-sm', selected ? 'bg-[#E5E5E5] text-[#273141] shadow' : 'text-[#D0D0D0] hover:bg-white/[0.12] hover:text-white']">
               Other
             </button>
           </Tab>

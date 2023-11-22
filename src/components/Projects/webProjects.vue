@@ -18,7 +18,7 @@ const isAgePredictionVisible = ref(true);
       <div class="flex border-b-2 border-[#D0D0D030] pb-8">
         <div class="">
           <Section time="2022">Webflix</Section>
-          <div class="flex">
+          <div class="flex lg:gap-6 gap-3">
             <Pill border-color="border-[#026E00]" color="bg-[#012600]">Node.js</Pill>
             <Pill border-color="border-[#702CF4]" color="bg-[#271055]">Bootstrap</Pill>
             <Pill border-color="border-[#C74634]" color="bg-[#3A3632]">Oracle</Pill>
@@ -36,7 +36,7 @@ const isAgePredictionVisible = ref(true);
       <div class="flex pb-8">
         <div class="">
           <Section time="2022">Unee</Section>
-          <div class="flex">
+          <div class="flex lg:gap-6 gap-3">
             <Pill border-color="border-[#026E00]" color="bg-[#012600]">Node.js</Pill>
             <Pill border-color="border-[#702CF4]" color="bg-[#271055]">Bootstrap</Pill>
             <Pill border-color="border-[#A9A9A9]" color="bg-[#373737]">Express</Pill>

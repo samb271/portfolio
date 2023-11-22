@@ -49,7 +49,7 @@ const getImageUrl = (id: string) => {
         <div class="gap-16">
           <Text>Via various aliases, I've released music on record labels across the globe, grossing tens of thousand of streams. I've also organized and played in multiple concerts.</Text>
 
-          <div class="-mx-16">
+          <div class="sm:-mx-16 -mx-6">
             <div class="mt-16 flex flex-row gap-8 gap-6 mx-auto">
               <Carousel :items-to-show="4" :transition="500" :autoplay="4000" :wrap-around="true"
                 :pauseAutoplayOnHover="true">
