@@ -18,7 +18,7 @@
 }
 
 .welcomeSubtext{
-  color: white;
+  color: #D0D0D0;
   font-family: "Parabole Text";
   line-height: 120px;
 }
