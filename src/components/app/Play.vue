@@ -71,7 +71,7 @@ const getImageUrl = (id: string) => {
       <div>
         <Section time="2011 - Current">Cyclig</Section>
 
-        <div class="flex flex-col xl:flex-row gap-16 pb-8">
+        <div class="flex flex-col xl:flex-row gap-16">
           <Text>I'm most likely more agile on two wheels than I am on two feet. I started riding mountain bikes at 14
             years
             old and it didn't take long for me to take an interest in racing. I participated in provincial cups until an
