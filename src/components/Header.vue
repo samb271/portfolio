@@ -57,7 +57,7 @@ window.addEventListener('scroll', () => {
 </script>
 
 <template>
-  <div class="fixed w-full md:px-16 px-8 pt-2 text-text-primary bg-background header">
+  <div class="fixed w-full md:px-16 px-8 pt-2 text-text-primary bg-background header z-50">
     <div class="h-12 flex place-items-center">
       <div>
         <p class="min-w-max">Samuel Barbeau</p>
@@ -67,13 +67,13 @@ window.addEventListener('scroll', () => {
         <img src="../assets/svg/samb.svg" class="relative h-6" id="avatar">
       </div>
 
-      <div>
+      <!-- <div>
         <div class="flex flex-row">
           <a href="#">English</a>
-          <p class="px-2">/</p>
+          <p class="px-2">|</p>
           <a href="#">Français</a>
         </div>
-      </div>
+      </div> -->
     </div>
     <div class="border-b border-white"></div>
   </div>

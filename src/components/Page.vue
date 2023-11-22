@@ -10,7 +10,7 @@ const props = defineProps({
   <div v-if="centered" class="min-h-screen grid place-content-center">
     <slot></slot>
   </div>
-  <div v-else class="min-h-screen pt-14">
+  <div v-else class="min-h-screen pt-14 pb-32">
     <slot></slot>
   </div>
 </template>
