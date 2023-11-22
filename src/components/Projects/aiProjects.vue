@@ -16,9 +16,9 @@ const isLinesOfActionVisible = ref(false);
 <template>
   <div class="flex">
 
-    <div class="flex flex-col gap-8 mt-20">
-      <div class="flex border-b-2 border-[#D0D0D030] pb-8">
-        <div class="">
+    <div class="flex flex-col gap-8 mt-20 w-full">
+      <div class="flex flex-col xl:flex-row justify-between gap-16 border-b-2 border-[#D0D0D030] pb-8">
+        <div>
           <Section time="2023">
             <button @click="isAgePredictionVisible = !isAgePredictionVisible">
               Age prediction
@@ -39,12 +39,16 @@ const isLinesOfActionVisible = ref(false);
               </span>
             </div>
           </div>
-
-
+        </div>
+        <div v-if="isAgePredictionVisible" class="grow max-h-fit flex flex-col items-center">
+          <img class="max-w-xs" src="../../assets/ai/agePrediction.png" alt="">
+          <div class="mt-3 text-text-secondary">
+            Age prediction
+          </div>
         </div>
       </div>
 
-      <div class="flex border-b-2 border-[#D0D0D030] pb-8">
+      <div class="flex flex-col xl:flex-row justify-between gap-16 border-b-2 border-[#D0D0D030] pb-8">
         <div>
           <Section time="2023">
             <button @click="isEmotionPredictionVisible = !isEmotionPredictionVisible">
@@ -69,7 +73,12 @@ const isLinesOfActionVisible = ref(false);
               </span>
             </div>
           </div>
-
+        </div>
+        <div v-if="isEmotionPredictionVisible" class="grow max-h-fit flex flex-col items-center my-auto">
+          <img class="max-w-lg" src="../../assets/ai/emotionPrediction.png" alt="">
+          <div class="mt-3 text-text-secondary">
+            Emotion prediction
+          </div>
         </div>
       </div>
 
@@ -101,7 +110,7 @@ const isLinesOfActionVisible = ref(false);
       </div>
 
 
-      <div class="flex border-b-2 border-[#D0D0D030] pb-8">
+      <div class="flex flex-col xl:flex-row justify-between gap-16 border-b-2 border-[#D0D0D030] pb-8">
         <div>
           <Section time="2023">
             <button @click="isShapeRecognitionVisible = !isShapeRecognitionVisible">
@@ -125,7 +134,12 @@ const isLinesOfActionVisible = ref(false);
               </span>
             </div>
           </div>
-
+        </div>
+        <div v-if="isShapeRecognitionVisible" class="grow max-h-fit flex flex-col items-center my-auto">
+          <img class="max-w-sm" src="../../assets/ai/shapeRecognitionOutline.png" alt="">
+          <div class="mt-3 text-text-secondary">
+            Shape recognition
+          </div>
         </div>
       </div>
 
@@ -151,38 +165,7 @@ const isLinesOfActionVisible = ref(false);
             </span>
           </div>
         </div>
-
       </div>
-
-
-
-
     </div>
-
-    <div class="flex flex-col justify-between gap-16 pt-32 max-w-md mx-auto">
-
-      <div class="flex flex-col items-center">
-        <img class="max-w-xs" src="../../assets/ai/agePrediction.png" alt="">
-        <div class="mt-3 text-text-secondary">
-          Age prediction
-        </div>
-      </div>
-
-      <div class="flex flex-col items-center">
-        <img class="max-w-xl" src="../../assets/ai/emotionPrediction.png" alt="">
-        <div class="mt-3 text-text-secondary">
-          Emotion prediction
-        </div>
-      </div>
-
-      <div class="flex flex-col items-center">
-        <img class="max-w-sm" src="../../assets/ai/shapeRecognitionOutline.png" alt="">
-        <div class="mt-3 text-text-secondary">
-          Shape recognition
-        </div>
-      </div>
-
-    </div>
-
   </div>
 </template>

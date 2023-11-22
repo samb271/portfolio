@@ -7,14 +7,16 @@ const { time } = defineProps({
 </script>
 
 <template>
-  <p class="section text-4xl text-text-primary flex transition duration-300">
+  <p class="section text-4xl text-text-primary flex transition duration-300 border">
+  <div class="">
     <slot></slot>
-    <p v-if="time" class="text-lg pl-3">{{ time }}</p>
+  </div>
+  <p v-if="time" class="text-lg pl-3">{{ time }}</p>
   </p>
 </template>
 
 <style scoped>
-.section{
+.section {
   font-family: "Parabole Text";
 }
 </style>

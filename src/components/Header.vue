@@ -57,14 +57,14 @@ window.addEventListener('scroll', () => {
 </script>
 
 <template>
-  <div class="fixed w-full md:px-16 px-8 pt-2 text-text-primary bg-background header z-50">
-    <div class="h-12 flex place-items-center">
+  <div class="fixed w-full sm:px-16 sm:text-base text-xs sm:px-8 px-6 pt-2 text-text-primary bg-background header z-50">
+    <div class="sm:h-12 h-8 flex place-items-center">
       <div>
         <p class="min-w-max">Samuel Barbeau</p>
       </div>
 
       <div class="grow mx-4" id="avatarContainer">
-        <img src="../assets/svg/samb.svg" class="relative h-6" id="avatar">
+        <img src="../assets/svg/samb.svg" class="relative sm:h-6 h-5" id="avatar">
       </div>
 
       <!-- <div>

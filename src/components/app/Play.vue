@@ -71,7 +71,7 @@ const getImageUrl = (id: string) => {
       <div>
         <Section time="2011 - Current">Cyclig</Section>
 
-        <div class="flex pb-8">
+        <div class="flex flex-col xl:flex-row gap-16 pb-8">
           <Text>I'm most likely more agile on two wheels than I am on two feet. I started riding mountain bikes at 14
             years
             old and it didn't take long for me to take an interest in racing. I participated in provincial cups until an
@@ -81,7 +81,7 @@ const getImageUrl = (id: string) => {
           </Text>
 
           <div class="grow">
-            <img src="../../assets/cycling/cycling.jpg" alt="cycling" class="max-w-3xl mx-auto">
+            <img src="../../assets/cycling/cycling.jpg" alt="cycling" class="max-w-3xl mx-auto w-full">
           </div>
         </div>
       </div>

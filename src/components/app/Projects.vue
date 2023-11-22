@@ -26,11 +26,11 @@ function setSelectedTab(tab: string) {
 </script>
 
 <template>
-  <div class="flex justify-between mt-40">
+  <div class="flex flex-col lg:flex-row gap-8 justify-between mt-40">
 
     <Title id="projects">Projects</Title>
 
-    <div class="my-auto">
+    <div class="my-auto max-w-fit">
       <TabGroup>
         <TabList class="flex gap-3 rounded-full bg-[#273141] px-3 py-2">
           <Tab class="focus:outline-none focus:ring-0" v-slot="{ selected }">
