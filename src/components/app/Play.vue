@@ -59,7 +59,6 @@ const getImageUrl = (id: string) => {
                   </a>
                 </Slide>
                 <template #addons>
-                  <Navigation />
                   <Pagination />
                 </template>
               </Carousel>
