@@ -26,9 +26,9 @@ watch(targetIsVisible, () => {
     <Section time="2020 - 2023">Powerhealth Solutions</Section>
 
     <div class="flex xl:flex-row gap-16 flex-col">
-      <div class="grow pr-8">
+      <div class="grow">
 
-        <div class="flex">
+        <div class="flex lg:gap-6 gap-3">
           <Pill border-color="border-[#42B883]" color="bg-[#143929]">Vue 3</Pill>
           <Pill border-color="border-[#ED8A80]" color="bg-[#502E2B]">Feathers</Pill>
           <Pill border-color="border-[#3178C6]" color="bg-[#122C49]">Typescript</Pill>
@@ -47,8 +47,8 @@ watch(targetIsVisible, () => {
           specifications and standards of the
           Ministry of Health.</Text>
       </div>
-      <div class="grow max-w-6xl h-fit my-auto">
-        <Carousel class="z-10">
+      <div class="grow max-w-7xl -mx-6 my-auto">
+        <Carousel>
           <Slide key="1">
             <img src="../../assets/ssel/ssel_dashboard.png" alt="" class="object-scale-down">
           </Slide>

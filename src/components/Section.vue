@@ -7,7 +7,7 @@ const { time } = defineProps({
 </script>
 
 <template>
-  <p class="section text-4xl text-text-primary flex transition duration-300 border">
+  <p class="section lg:text-4xl md:text-3xl text-2xl text-text-primary flex transition duration-300">
   <div class="">
     <slot></slot>
   </div>

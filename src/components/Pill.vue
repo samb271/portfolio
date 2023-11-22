@@ -12,7 +12,7 @@ const { borderColor, color } = defineProps({
 </script>
 
 <template>
-  <div :class="['text-base border-2 h-10 min-w-fit px-4 mt-4 mr-6 grid place-items-center rounded-full text-text-primary', borderColor, color]">
+  <div :class="['lg:text-base md:text-sm text-xs border-2 lg:h-10 h-8 min-w-fit lg:px-4 px-3 mt-4 grid place-items-center rounded-full text-text-primary', borderColor, color]">
     <slot></slot>
   </div>
 </template>

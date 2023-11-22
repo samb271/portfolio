@@ -25,7 +25,7 @@ const isLinesOfActionVisible = ref(false);
             </button>
           </Section>
           <div v-if="isAgePredictionVisible">
-            <div class="flex">
+            <div class="flex lg:gap-6 gap-3">
               <Pill border-color="border-[#ffd343]" color="bg-[#44370D]">Python</Pill>
               <Pill border-color="border-[#D00002]" color="bg-[#470001]">Keras</Pill>
             </div>
@@ -56,7 +56,7 @@ const isLinesOfActionVisible = ref(false);
             </button>
           </Section>
           <div v-if="isEmotionPredictionVisible">
-            <div class="flex">
+            <div class="flex lg:gap-6 gap-3">
               <Pill border-color="border-[#ffd343]" color="bg-[#44370D]">Python</Pill>
             </div>
             <div class="flex">
@@ -90,7 +90,7 @@ const isLinesOfActionVisible = ref(false);
             </button>
           </Section>
           <div v-if="isPyCluesVisible">
-            <div class="flex">
+            <div class="flex lg:gap-6 gap-3">
               <Pill border-color="border-[#ffd343]" color="bg-[#44370D]">Python</Pill>
             </div>
             <div class="flex">
@@ -118,7 +118,7 @@ const isLinesOfActionVisible = ref(false);
             </button>
           </Section>
           <div v-if="isShapeRecognitionVisible">
-            <div class="flex">
+            <div class="flex lg:gap-6 gap-3">
               <Pill border-color="border-[#ffd343]" color="bg-[#44370D]">Python</Pill>
             </div>
             <div class="flex">
@@ -150,7 +150,7 @@ const isLinesOfActionVisible = ref(false);
           </button>
         </Section>
         <div v-if="isLinesOfActionVisible">
-          <div class="flex">
+          <div class="flex lg:gap-6 gap-3">
             <Pill border-color="border-[#ED8B00]" color="bg-[#502F00]">Java</Pill>
           </div>
           <div class="flex">
