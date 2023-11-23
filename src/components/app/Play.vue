@@ -47,7 +47,8 @@ const getImageUrl = (id: string) => {
           <Pill border-color="border-[#7DFFFF]" color="bg-[#1F4242]">Ableton</Pill>
         </div>
         <div class="gap-16">
-          <Text>Via various aliases, I've released music on record labels across the globe, grossing tens of thousand of streams. I've also organized and played multiple concerts.</Text>
+          <Text>Via various aliases, I've released music on record labels across the globe, grossing tens of thousand of
+            streams. I've also organized and played multiple concerts.</Text>
 
           <div class="sm:-mx-16 -mx-6">
             <div class="mt-16 flex flex-row gap-8 gap-6 mx-auto">
@@ -79,8 +80,11 @@ const getImageUrl = (id: string) => {
             health in check, in addition to nurturing my connection with nature.
           </Text>
 
-          <div class="grow">
+          <div class="grow flex flex-col items-center">
             <img src="../../assets/cycling/cycling.jpg" alt="cycling" class="max-w-3xl mx-auto w-full">
+            <div class="mt-3 text-[#A0A0A0] text-xs">
+              @ Guillaume Troquet Photography
+            </div>
           </div>
         </div>
       </div>
