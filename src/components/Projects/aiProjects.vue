@@ -8,7 +8,7 @@ import { ref } from 'vue';
 const isAgePredictionVisible = ref(true);
 const isEmotionPredictionVisible = ref(true);
 const isPyCluesVisible = ref(true);
-const isShapeRecognitionVisible = ref(false);
+const isShapeRecognitionVisible = ref(true);
 const isLinesOfActionVisible = ref(false);
 
 </script>
@@ -27,7 +27,9 @@ const isLinesOfActionVisible = ref(false);
           <div v-if="isAgePredictionVisible">
             <div class="flex lg:gap-6 gap-3">
               <Pill border-color="border-[#ffd343]" color="bg-[#44370D]">Python</Pill>
+              <Pill border-color="border-[#F66F06]" color="bg-[#512400]">Tensorflow</Pill>
               <Pill border-color="border-[#D00002]" color="bg-[#470001]">Keras</Pill>
+              <Pill border-color="border-[#F79C34]" color="bg-[#532F06]">Scikit-learn</Pill>
             </div>
             <div class="flex">
               <span>
@@ -58,6 +60,7 @@ const isLinesOfActionVisible = ref(false);
           <div v-if="isEmotionPredictionVisible">
             <div class="flex lg:gap-6 gap-3">
               <Pill border-color="border-[#ffd343]" color="bg-[#44370D]">Python</Pill>
+              <Pill border-color="border-[#F79C34]" color="bg-[#532F06]">Scikit-learn</Pill>
             </div>
             <div class="flex">
               <span>
@@ -120,6 +123,7 @@ const isLinesOfActionVisible = ref(false);
           <div v-if="isShapeRecognitionVisible">
             <div class="flex lg:gap-6 gap-3">
               <Pill border-color="border-[#ffd343]" color="bg-[#44370D]">Python</Pill>
+              <Pill border-color="border-[#F79C34]" color="bg-[#532F06]">Scikit-learn</Pill>
             </div>
             <div class="flex">
               <span>
