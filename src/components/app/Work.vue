@@ -23,7 +23,7 @@ watch(targetIsVisible, () => {
   <div ref="target">
     <Title id="work" class="mt-8 mb-20">Work</Title>
 
-    <Section time="2020 - 2023">PowerHealth CA</Section>
+    <Section time="2020 - Current">PowerHealth CA</Section>
 
     <div class="flex xl:flex-row gap-16 flex-col">
       <div class="grow">

@@ -35,7 +35,7 @@ const isLinesOfActionVisible = ref(false);
               <span>
                 <Text>Implemented a CNN for an age prediction task using the FG-NET dataset. The continuous labels were
                   first categorized into age groups. After having pre-processed the raw images by
-                  normalize brightness and adding contrast to exagerate the skin features, the resulting images were
+                  normalizing brightness and adding contrast to exagerate the skin features, the resulting images were
                   augmented and fed into a CNN.
                 </Text>
               </span>
