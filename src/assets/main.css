@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "Parabole Display";
+  src: url(../assets/fonts/Parabole/ParaboleTrial-DisplayRegular.otf);
+}
+
+@font-face {
+  font-family: "Parabole Text";
+  src: url(../assets/fonts/Parabole/ParaboleTrial-TextRegular.otf);
+}
