@@ -37,7 +37,7 @@ watch(targetIsVisible, () => {
 
         <Text title="Full stack developper" year="2022">Designed, developed and documented a file submission application
           allowing members of government medical establishments to submit financial and clinical data online. Supervisors can overview the status and history of all submitted files. Implements a user hierarchy for the
-          management of restricted collaborator groups specific to each establishment and department.</Text>
+          management of restricted collaborator groups specific to each establishment and department. Added a crucial layer of transparency to a system that was otherwise invisible to the client.</Text>
         <Text title="QA" year="2021">Implemented automatized testing for a web app using Cypress.
           Developed SQL scripts and queries for data extraction, analysis and validation.</Text>
         <Text title="Documentation" year="2020">Oversaw and produced the documentation of all new PHS products under the
