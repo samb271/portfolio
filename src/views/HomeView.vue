@@ -4,6 +4,7 @@ import Page from '../components/Page.vue'
 import Container from '@/components/Container.vue';
 import Work from '@/components/app/Work.vue';
 import Projects from '@/components/app/Projects.vue';
+import Research from '@/components/app/Research.vue'
 import Play from '@/components/app/Play.vue';
 </script>
 
@@ -13,6 +14,7 @@ import Play from '@/components/app/Play.vue';
       <Container>
         <Home />
         <Work />
+        <Research />
         <Projects />
         <Play />
       </Container>

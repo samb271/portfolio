@@ -23,7 +23,8 @@ const releases = ref([
   { src: 'clovis', link: 'https://gobekli.bandcamp.com/album/clovis', alt: 'clovis' },
   { src: 'likeRainbow', link: 'https://soundcloud.com/samb271/like-a-rainbow?si=2790a1457f1a48758b0c00438549aa08&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing', alt: 'likeRainbow' },
   { src: 'dontStop', link: 'https://gobekli.bandcamp.com/album/dont-stop-stop-stop-stop-stop-stop-stop-stop-stop', alt: 'dontStop' },
-  { src: 'leo', link: 'https://cloudcore.bandcamp.com/album/leo', alt: 'leo' }]);
+  { src: 'leo', link: 'https://cloudcore.bandcamp.com/album/leo', alt: 'leo' },
+  { src: 'needles', link: 'https://cloudcore.bandcamp.com/album/needles', alt: 'needles' }]);
 
 const getImageUrl = (id: string) => {
   return new URL(`../../assets/music/${id}.jpg`, import.meta.url).href;

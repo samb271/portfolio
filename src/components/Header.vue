@@ -57,7 +57,7 @@ window.addEventListener('scroll', () => {
 </script>
 
 <template>
-  <div class="fixed w-full sm:px-16 px-6 sm:text-base text-xs pt-2 text-text-primary bg-background header z-50">
+  <div class="fixed w-full md:px-16 px-6 sm:text-base text-xs pt-2 text-text-primary bg-background header z-50" id="header">
     <div class="sm:h-12 h-10 flex place-items-center">
       <div>
         <p class="min-w-max font-paraboleText">Samuel Barbeau</p>
@@ -67,13 +67,11 @@ window.addEventListener('scroll', () => {
         <img src="../assets/svg/samb.svg" class="relative sm:h-6 h-5" id="avatar">
       </div>
 
-      <!-- <div>
+      <div>
         <div class="flex flex-row">
-          <a href="#">English</a>
-          <p class="px-2">|</p>
-          <a href="#">Français</a>
+          <a href="mailto:samuelpbarbeau@gmail.com">Contact</a>
         </div>
-      </div> -->
+      </div>
     </div>
     <div class="border-b border-white"></div>
   </div>
