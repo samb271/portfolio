@@ -14,7 +14,7 @@ const isAgePredictionVisible = ref(true);
     <div class="flex flex-col gap-8 w-full">
       <div class="flex flex-col xl:flex-row justify-between gap-16">
         <div>
-          <Section time="2024 - Current">LIVIA</Section>
+          <Section time="2024 - Current"><a href="https://www.etsmtl.ca/en/labs/livia">LIVIA</a></Section>
 
           <Text title="Undergraduate research student">
             Supervised by Christian Desrosiers<br><br>

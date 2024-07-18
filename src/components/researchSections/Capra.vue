@@ -14,7 +14,7 @@ const isAgePredictionVisible = ref(true);
     <div class="flex flex-col gap-8 w-full">
       <div class="flex flex-col xl:flex-row justify-between gap-16">
         <div>
-          <Section time="2024 - Current">Capra Robotics</Section>
+          <Section time="2024 - Current"><a href="https://www.clubcapra.com">Club Capra</a></Section>
 
           <Text title="Machine Learning Developper">
             Spearheaded the pose prediction project, currently working on end-to-end parameterization with RL.

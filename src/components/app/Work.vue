@@ -85,7 +85,7 @@ function handleScroll() {
       </TabGroup>
 
       <div v-if="selectedTab === 'PHS'">
-        <Section time="2020 - 2024">PowerHealth CA</Section>
+        <Section time="2020 - 2024"><a href="https://www.powerhealthsolutions.com">PowerHealth CA</a></Section>
 
         <div class="flex xl:flex-row gap-16 flex-col">
           <div class="grow">
@@ -128,7 +128,7 @@ function handleScroll() {
       </div>
 
       <div class="grow" v-if="selectedTab === 'Zebra'">
-        <Section time="2024 - Current">Zebra</Section>
+        <Section time="2024 - Current"><a href="https://www.zebra.com">Zebra</a></Section>
 
         <div class="flex xl:flex-row flex-col">
           <div>
