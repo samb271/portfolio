@@ -138,7 +138,8 @@ function handleScroll() {
               <Pill border-color="border-[#3178C6]" color="bg-[#122C49]">Linux</Pill>
             </PillContainer>
 
-            <Text title="Machine Learning Research Intern" year="2024">Researched the domain gap between real and
+            <Text title="Machine Learning Research Intern" year="2024">
+              <!-- Researched the domain gap between real and
               synthetic
               data for efficient training of machine learning algorithms.<br><br>
               Through extensive litterature reviews, proposed multiple generative models such as StyleGAN3,
@@ -150,7 +151,7 @@ function handleScroll() {
               (used
               for Dall-E 2).<br><br>
               Produced extensive reports of all results which were presented bi-monthly to the members of the Zebra RnD
-              team.
+              team. -->
             </Text>
           </div>
           <div class="max-xl:hidden grow flex justify-center my-auto">
