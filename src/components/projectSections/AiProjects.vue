@@ -8,7 +8,7 @@ import { ref } from 'vue';
 const isAgePredictionVisible = ref(true);
 const isEmotionPredictionVisible = ref(true);
 const isPyCluesVisible = ref(true);
-const isShapeRecognitionVisible = ref(true);
+const isShapeRecognitionVisible = ref(false);
 const isLinesOfActionVisible = ref(false);
 const isPoseDetectionVisible = ref(true);
 
