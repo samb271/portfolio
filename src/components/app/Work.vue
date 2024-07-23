@@ -141,16 +141,16 @@ function handleScroll() {
 
             <Text title="Machine Learning Research Intern" year="2024">
               Researched the domain gap between real and synthetic data for efficient training of machine learning
-              algorithms.
+              algorithms.<br><br>
 
               Through extensive literature reviews, proposed multiple generative models, both diffusion based and
               adversarial,
               for the fine-tuning of various object detectors. All of the explored architectures were implemented and
               often
-              modified for internal evaluation.
+              modified for internal evaluation.<br><br>
 
               Designed and implemented an unsupervised image captioning pipeline for the fine-tuning of contrastive
-              models.
+              models.<br><br>
 
               Produced extensive reports of all results which were presented bi-monthly to the members of the Zebra RnD
               team.
