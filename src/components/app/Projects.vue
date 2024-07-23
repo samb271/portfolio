@@ -29,39 +29,6 @@ const selectedTab = ref('AI');
 function setSelectedTab(tab: string) {
   selectedTab.value = tab;
 }
-
-onMounted(() => {
-  const header = document.getElementById('header'); // Adjust the selector to your actual header
-  if (header) {
-    headerHeight.value = header.clientHeight;
-  } 
-
-  if (target.value) {
-    const rect = target.value.getBoundingClientRect();
-    sectionTop.value = rect.top + window.scrollY;
-    sectionHeight.value = rect.height;
-  }
-
-  window.addEventListener('scroll', handleScroll);
-});
-
-function handleScroll() {
-  const scrollTop = window.scrollY;
-  const offsetTop = sectionTop.value;
-  const offsetBottom = offsetTop + sectionHeight.value;
-
-  if (tabGroup.value) {
-    if (scrollTop >= offsetTop - headerHeight.value && scrollTop < offsetBottom - tabGroup.value.clientHeight) {
-      tabGroup.value.style.position = 'fixed';
-      tabGroup.value.style.top = `${headerHeight.value}px`;
-    } else {
-      tabGroup.value.style.position = 'absolute';
-      tabGroup.value.style.top = scrollTop >= offsetBottom - tabGroup.value.clientHeight
-        ? `${offsetBottom - sectionTop.value - tabGroup.value.clientHeight}px`
-        : '0px';
-    }
-  }
-}
 </script>
 
 <template>
@@ -69,15 +36,15 @@ function handleScroll() {
     <Title id="projects">Projects</Title>
   </div>
 
-  <div class="flex flex-col md:flex-row mt-20 gap-12" ref="target">
+  <div class="flex flex-col md:flex-row mt-12 md:mt-20 gap-8 md:gap-12" ref="target">
     <TabGroup class="z-0">
-      <TabList ref="tabGroup" class="flex flex-col gap-3 rounded-lg bg-[#273141] pl-5 pr-8 py-5 h-min min-w-36 md:sticky">
-        <Tab class="focus:outline-none focus:ring-0 text-left" v-slot="{ selected }">
+      <TabList ref="tabGroup" class="menu flex md:flex-col md:gap-3 gap-5 rounded-lg bg-[#273141F2] pl-5 pr-8 py-3 sm:py-5 min-w-36 h-min sticky top-[65px] sm:top-[75px] md:top-[87px]">
+        <Tab class="focus:outline-none max-md:border-r max-md:pr-5 focus:ring-0 text-left" v-slot="{ selected }">
           <button @click="setSelectedTab('AI')" :class="[selected ? 'text-text-primary' : 'text-[#D0D0D0]']">
             AI
           </button>
         </Tab>
-        <Tab class="focus:outline-none focus:ring-0 text-left" v-slot="{ selected }">
+        <Tab class="focus:outline-none max-md:border-r max-md:pr-5 focus:ring-0 text-left" v-slot="{ selected }">
           <button @click="setSelectedTab('Web')" :class="[selected ? 'text-text-primary' : 'text-[#D0D0D0]']">
             Web
           </button>
@@ -117,11 +84,7 @@ function handleScroll() {
 </template>
 
 <style>
-.sticky {
-  position: -webkit-sticky;
-  /* Safari */
-  position: sticky;
-  top: 87px;
-  /* Adjust as needed */
+.menu {
+  backdrop-filter: blur(2px);
 }
 </style>

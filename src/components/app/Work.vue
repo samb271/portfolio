@@ -29,13 +29,13 @@ function setSelectedTab(tab: string) {
 
 <template>
   <div>
-    <Title id="work" class="mt-8 mb-20">Work</Title>
+    <Title id="work" class="mt-8 mb-12 md:mb-20">Work</Title>
 
-    <div class="flex flex-col md:flex-row gap-12" ref="target">
+    <div class="flex flex-col md:flex-row gap-8 md:gap-12" ref="target">
 
-      <TabGroup class="z-0">
+      <TabGroup class="z-10">
         <TabList class="menu flex md:flex-col md:gap-3 gap-5 rounded-lg bg-[#273141F2] pl-5 pr-8 py-3 sm:py-5 min-w-36 h-min sticky top-[65px] sm:top-[75px] md:top-[87px]">
-          <Tab class="focus:outline-none max-md:border-r max-md:pr-5 focus:ring-0 text-left" v-slot="{ selected }">
+          <Tab class="focus:outline-none max-md:border-r border-[#D0D0D0] max-md:pr-5 focus:ring-0 text-left" v-slot="{ selected }">
             <button @click="setSelectedTab('Zebra')" :class="[selected ? 'text-text-primary' : 'text-[#D0D0D0]']">
               Zebra
             </button>
@@ -141,7 +141,7 @@ function setSelectedTab(tab: string) {
   </div> -->
 </template>
 
-<style>
+<style scoped>
 .carousel__item {
   min-height: 200px;
   width: 100%;
