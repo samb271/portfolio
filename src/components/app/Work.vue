@@ -68,7 +68,7 @@ function handleScroll() {
     <Title id="work" class="mt-8 mb-20">Work</Title>
 
     <div class="flex flex-col md:flex-row gap-12" ref="target">
-      
+
       <TabGroup class="z-0">
         <TabList class="flex flex-col gap-3 rounded-lg bg-[#273141] pl-5 pr-8 py-5 min-w-36 h-min md:sticky">
           <Tab class="focus:outline-none focus:ring-0 text-left" v-slot="{ selected }">
@@ -100,7 +100,8 @@ function handleScroll() {
             <Text title="Full stack developper" year="2022">Designed, developed and documented a file submission
               application
               allowing members of government medical establishments to submit financial and clinical data online.
-              <br><br>Supervisors can overview the status and history of all submitted files. Implements a user hierarchy for
+              <br><br>Supervisors can overview the status and history of all submitted files. Implements a user
+              hierarchy for
               the
               management of restricted collaborator groups specific to each establishment and department. Added a
               crucial layer of transparency to a system that was otherwise invisible to the client.</Text>
@@ -139,19 +140,20 @@ function handleScroll() {
             </PillContainer>
 
             <Text title="Machine Learning Research Intern" year="2024">
-              <!-- Researched the domain gap between real and
-              synthetic
-              data for efficient training of machine learning algorithms.<br><br>
-              Through extensive litterature reviews, proposed multiple generative models such as StyleGAN3,
-              LayoutDiffusion,
-              ControlNet and Dall-E 2 for the fine-tuning of various object detectors. All of the explored architectures
-              were
-              first re-trained on all layers and then fine-tuned using LoRA<br><br>
-              Designed and implemented an image captioning pipeline using BLIP and Llama2 for the fine-tuning of CLIP
-              (used
-              for Dall-E 2).<br><br>
+              Researched the domain gap between real and synthetic data for efficient training of machine learning
+              algorithms.
+
+              Through extensive literature reviews, proposed multiple generative models, both diffusion based and
+              adversarial,
+              for the fine-tuning of various object detectors. All of the explored architectures were implemented and
+              often
+              modified for internal evaluation.
+
+              Designed and implemented an unsupervised image captioning pipeline for the fine-tuning of contrastive
+              models.
+
               Produced extensive reports of all results which were presented bi-monthly to the members of the Zebra RnD
-              team. -->
+              team.
             </Text>
           </div>
           <div class="max-xl:hidden grow flex justify-center my-auto">
