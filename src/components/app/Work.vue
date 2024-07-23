@@ -14,10 +14,6 @@ import { TabGroup, TabList, Tab } from '@headlessui/vue'
 const workVisibilityStore = useWorkVisibilityStore();
 const target = ref<HTMLElement | null>(null);
 const targetIsVisible = useElementVisibility(target)
-const tabGroup = ref<HTMLElement | null>(null);
-const headerHeight = ref(0);
-const sectionTop = ref(0);
-const sectionHeight = ref(0);
 
 watch(targetIsVisible, () => {
   workVisibilityStore.toggle()
@@ -29,38 +25,6 @@ function setSelectedTab(tab: string) {
   selectedTab.value = tab
 }
 
-onMounted(() => {
-  const header = document.getElementById('header'); // Adjust the selector to your actual header
-  if (header) {
-    headerHeight.value = header.clientHeight;
-  }
-
-  if (target.value) {
-    const rect = target.value.getBoundingClientRect();
-    sectionTop.value = rect.top + window.scrollY;
-    sectionHeight.value = rect.height;
-  }
-
-  window.addEventListener('scroll', handleScroll);
-});
-
-function handleScroll() {
-  const scrollTop = window.scrollY;
-  const offsetTop = sectionTop.value;
-  const offsetBottom = offsetTop + sectionHeight.value;
-
-  if (tabGroup.value) {
-    if (scrollTop >= offsetTop - headerHeight.value && scrollTop < offsetBottom - tabGroup.value.clientHeight) {
-      tabGroup.value.style.position = 'fixed';
-      tabGroup.value.style.top = `${headerHeight.value}px`;
-    } else {
-      tabGroup.value.style.position = 'absolute';
-      tabGroup.value.style.top = scrollTop >= offsetBottom - tabGroup.value.clientHeight
-        ? `${offsetBottom - sectionTop.value - tabGroup.value.clientHeight}px`
-        : '0px';
-    }
-  }
-}
 </script>
 
 <template>
@@ -70,8 +34,8 @@ function handleScroll() {
     <div class="flex flex-col md:flex-row gap-12" ref="target">
 
       <TabGroup class="z-0">
-        <TabList class="flex flex-col gap-3 rounded-lg bg-[#273141] pl-5 pr-8 py-5 min-w-36 h-min md:sticky">
-          <Tab class="focus:outline-none focus:ring-0 text-left" v-slot="{ selected }">
+        <TabList class="menu flex md:flex-col md:gap-3 gap-5 rounded-lg bg-[#273141F2] pl-5 pr-8 py-3 sm:py-5 min-w-36 h-min sticky top-[65px] sm:top-[75px] md:top-[87px]">
+          <Tab class="focus:outline-none max-md:border-r max-md:pr-5 focus:ring-0 text-left" v-slot="{ selected }">
             <button @click="setSelectedTab('Zebra')" :class="[selected ? 'text-text-primary' : 'text-[#D0D0D0]']">
               Zebra
             </button>
@@ -177,7 +141,7 @@ function handleScroll() {
   </div> -->
 </template>
 
-<style scoped>
+<style>
 .carousel__item {
   min-height: 200px;
   width: 100%;
@@ -200,11 +164,8 @@ function handleScroll() {
   border: 5px solid white;
 }
 
-.sticky {
-  position: -webkit-sticky;
-  /* Safari */
-  position: sticky;
-  top: 87px;
-  /* Adjust as needed */
+.menu {
+  backdrop-filter: blur(2px);
 }
+
 </style>
