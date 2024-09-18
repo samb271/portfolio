@@ -18,9 +18,8 @@ const isAgePredictionVisible = ref(true);
 
           <Text title="Undergraduate research student">
             Supervised by Christian Desrosiers<br><br>
-            Studying domain shift, continual learning and bio-plausible learning.<br><br>
+            Researching better test time adaptation and test time training methods in collaboration with Pedram Fekri.<br><br>
             Weekly presentations on my advancements at Zebra to the rest of the graduate students.
-            
           </Text>
         </div>
       </div>
