@@ -34,7 +34,7 @@ function setSelectedTab(tab: string) {
   </div>
 
   <Text>
-    I am fascinated by the brains ability to form a question and learn from the answer. I believe somewhere behind that curiosity lies the understanding of intellingence.
+    Passionate about reverse engineering the brain.
   </Text>
 
   <div class="flex flex-col md:flex-row mt-12 md:mt-20 gap-8 md:gap-12" ref="target">
