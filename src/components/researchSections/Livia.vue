@@ -17,9 +17,10 @@ const isAgePredictionVisible = ref(true);
           <Section time="2024 - Current"><a href="https://www.etsmtl.ca/en/labs/livia">LIVIA</a></Section>
 
           <Text title="Undergraduate research student">
-            Supervised by Christian Desrosiers<br><br>
-            Researching better test time adaptation and test time training methods in collaboration with Pedram Fekri.<br><br>
-            Weekly presentations on my advancements at Zebra to the rest of the graduate students.
+            <i>Supervised by Dr. Christian Desrosiers</i><br><br>
+            Researching and developing novel test time training methods to improve the performance of vision models under domain shift.<br><br>
+            Studying the effect of recurrence in vision models for improved efficiency.<br><br>
+            Participating to the weekly progress report meetings, where I update the PhD students on my work and participate in the brainstorm sessions.
           </Text>
         </div>
       </div>
