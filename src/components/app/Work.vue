@@ -107,14 +107,12 @@ function setSelectedTab(tab: string) {
               Researched the domain gap between real and synthetic data for efficient training of machine learning
               algorithms.<br><br>
 
-              Through extensive literature reviews, proposed multiple generative models, both diffusion based and
-              adversarial,
-              for the fine-tuning of various object detectors. All of the explored architectures were implemented and
-              often
-              modified for internal evaluation.<br><br>
+              Following an extensive literature review of state-of-the-art diffusion and adversarial methods, proposed and 
+              developed a custom synthetic data generator used to train internal object detection tools, 
+              reaching the same level of accuracy as if it were trained on real data.<br><br>
 
-              Designed and implemented an unsupervised image captioning pipeline for the fine-tuning of contrastive
-              models.<br><br>
+              Designed and implemented a pipeline for grounded image segmentation and unsupervised image captioning to fine-tune generative models.
+              <br><br>
 
               Produced extensive reports of all results which were presented bi-monthly to the members of the Zebra RnD
               team.
