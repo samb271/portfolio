@@ -36,12 +36,13 @@ const percent = computed(() => String(Math.round(progress.value * 100)).padStart
 
       <div class="relative mx-2 hidden h-6 grow sm:block" aria-hidden="true">
         <div class="absolute inset-x-0 top-1/2 border-t border-dashed border-[#1e1e1e]" />
-        <img
-          src="/uploads/samb.svg"
-          alt=""
-          class="absolute top-0 h-6"
-          :style="{ left: `calc(${progress} * (100% - 1.25rem))` }"
-        />
+        <!-- Black padding around the avatar masks the dotted line behind it. -->
+        <span
+          class="absolute top-0 flex h-6 bg-bg px-1.5"
+          :style="{ left: `calc(${progress} * (100% - 2rem))` }"
+        >
+          <img src="/uploads/samb.svg" alt="" class="h-6" />
+        </span>
       </div>
       <span class="hidden w-10 text-right text-xs text-mute sm:block" aria-hidden="true">{{ percent }}%</span>
 
