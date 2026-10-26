@@ -1,5 +1,5 @@
 ---
-title: Montreal Robotics Summer School
+title: Montreal Robotics Summer School (Mila)
 short: MRSS
 period: 2025 - 2026
 order: 1
