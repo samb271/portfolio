@@ -154,6 +154,8 @@ collections:
       - { name: period, label: Period, widget: string, required: false }
       - { name: order, label: Order, widget: number, value_type: int, default: 10 }
       - { name: tags, label: Tools, widget: list, required: false }
+      - { name: image, label: Photo, widget: image, required: false }
+      - { name: credit, label: "Photo credit", widget: string, required: false }
       - name: releases
         label: "Releases (album grid)"
         widget: list

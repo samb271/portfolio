@@ -8,6 +8,7 @@ module.exports = {
         bg: 'var(--bg)',
         panel: 'var(--panel)',
         'panel-raised': 'var(--panel-raised)',
+        active: 'var(--active)',
         line: 'var(--line)',
         'line-strong': 'var(--line-strong)',
         fg: 'var(--text)',

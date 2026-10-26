@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useActiveSection } from '@/composables/useActiveSection'
 import ShuffleText from './ShuffleText.vue'
+import { scrollToSection } from '@/composables/scrollToSection'
 
 const items = ['work', 'research', 'involvement', 'play', 'blog']
 const active = useActiveSection(items)
@@ -16,9 +17,10 @@ const active = useActiveSection(items)
       :key="item"
       :href="`#${item}`"
       :aria-current="active === item ? 'location' : undefined"
+      @click="scrollToSection($event, item)"
       :class="[
-        'shrink-0 px-2 py-1 transition-colors sm:px-3.5',
-        active === item ? 'bg-panel-raised text-accent' : 'text-mute hover:text-fg',
+        'shrink-0 select-none px-2 py-1 transition-colors sm:px-3.5',
+        active === item ? 'bg-active text-accent' : 'text-mute hover:text-fg',
       ]"
     >
       <ShuffleText :text="active === item ? `[${item}]` : item" on="hover" />

@@ -8,7 +8,7 @@ defineEmits<{ 'update:modelValue': [id: string] }>()
 
 <template>
   <nav
-    class="z-10 h-min border border-line bg-panel text-sm backdrop-blur md:sticky md:top-[calc(var(--header-h)+1.5rem)] md:w-48 md:shrink-0"
+    class="z-10 h-min border border-line bg-panel text-sm backdrop-blur md:sticky md:top-[calc(var(--header-h)+var(--heading-h)+1rem)] md:w-48 md:shrink-0"
     :aria-label="dir"
   >
     <ShuffleText as="p" :text="`~/${dir}`" on="hover" class="border-b border-line px-3.5 py-2 text-xs text-mute" />
@@ -18,8 +18,8 @@ defineEmits<{ 'update:modelValue': [id: string] }>()
           type="button"
           :aria-current="item.id === modelValue ? 'true' : undefined"
           :class="[
-            'w-full px-2 py-1 text-left transition-colors',
-            item.id === modelValue ? 'bg-panel-raised text-accent' : 'text-mute hover:text-fg',
+            'w-full select-none px-2 py-1 text-left transition-colors',
+            item.id === modelValue ? 'bg-active text-accent' : 'text-mute hover:text-fg',
           ]"
           @click="$emit('update:modelValue', item.id)"
         >

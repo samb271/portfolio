@@ -24,17 +24,22 @@ const items = computed(() => props.hobbies.map((h) => ({ id: h.slug, label: h.ti
         <div class="prose mt-6" v-html="hobby.body" />
       </div>
 
+      <figure v-if="hobby.image" class="mt-8 max-w-3xl">
+        <img :src="hobby.image" :alt="hobby.title" class="w-full border border-line" loading="lazy" />
+        <figcaption v-if="hobby.credit" class="mt-2 text-xs text-mute">{{ hobby.credit }}</figcaption>
+      </figure>
+
       <ul v-if="hobby.releases?.length" class="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
         <li v-for="release in hobby.releases" :key="release.link">
-          <a :href="release.link" target="_blank" rel="noopener" class="group block">
+          <a :href="release.link" target="_blank" rel="noopener" class="no-arrow group block">
             <img
               :src="release.cover"
               :alt="release.title"
-              class="aspect-square w-full border border-line object-cover grayscale transition duration-300 group-hover:border-accent group-hover:grayscale-0"
+              class="aspect-square w-full border border-line object-cover transition-colors duration-300 group-hover:border-accent"
               loading="lazy"
             />
             <span class="mt-2 block truncate text-xs text-mute transition-colors group-hover:text-accent">
-              {{ release.title.toLowerCase() }}
+              {{ release.title.toLowerCase() }} <span aria-hidden="true">&#x2197;&#xFE0E;</span>
             </span>
           </a>
         </li>

@@ -40,6 +40,8 @@ export interface Release { title: string; cover: string; link: string }
 
 export interface Hobby extends Base {
   period?: string
+  image?: string
+  credit?: string
   releases?: Release[]
 }
 

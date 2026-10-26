@@ -4,6 +4,7 @@ import { site } from '@/content'
 import { prefersReducedMotion } from '@/composables/useShuffle'
 import ShellWindow from './ShellWindow.vue'
 import ShuffleText from './ShuffleText.vue'
+import { scrollToSection } from '@/composables/scrollToSection'
 
 const sections = [
   { id: 'work', label: 'work/' },
@@ -13,7 +14,8 @@ const sections = [
   { id: 'blog', label: 'blog/' },
 ]
 
-// Boot sequence: prompt lines appear one after another. Short on purpose,
+// Boot sequence: prompt lines fade in one after another. Their space is
+// reserved from the start so the window never resizes. Short on purpose,
 // a visitor should never wait on it.
 const STEPS = 3
 const shown = ref(0)
@@ -35,6 +37,10 @@ onMounted(() => {
   for (let i = 1; i <= STEPS; i++) timers.push(setTimeout(() => (shown.value = i), 650 + i * 170))
 })
 
+// Hidden blocks keep their space (invisible), then fade in.
+const reveal = (step: number) =>
+  `transition-[opacity,visibility] duration-300 ${shown.value >= step ? 'visible opacity-100' : 'invisible opacity-0'}`
+
 onBeforeUnmount(() => {
   timers.forEach(clearTimeout)
   clearInterval(spin)
@@ -53,22 +59,23 @@ onBeforeUnmount(() => {
         <p v-if="booting" class="text-mute">{{ spinner }} loading profile...</p>
         <p v-else class="text-mute">[ok] profile loaded</p>
 
-        <div v-if="shown >= 1" class="mt-4">
+        <div :class="['mt-4', reveal(1)]">
           <p><span class="text-mute">$</span> cat about.txt</p>
           <p class="max-w-2xl text-dim">{{ site.intro }}</p>
         </div>
 
-        <div v-if="shown >= 2" class="mt-4">
+        <div :class="['mt-4', reveal(2)]">
           <p><span class="text-mute">$</span> ls</p>
           <p class="flex flex-wrap gap-x-5 gap-y-1">
-            <a v-for="s in sections" :key="s.id" :href="`#${s.id}`" class="text-dim transition-colors hover:text-accent">{{ s.label }}</a>
+            <a v-for="s in sections" :key="s.id" :href="`#${s.id}`" class="text-dim transition-colors hover:text-accent" @click="scrollToSection($event, s.id)">{{ s.label }}</a>
           </p>
         </div>
 
-        <div v-if="shown >= 3" class="mt-4">
+        <div :class="['mt-4', reveal(3)]">
           <p><span class="text-mute">$</span> contact</p>
           <p class="flex flex-wrap gap-x-5 gap-y-1">
             <a :href="`mailto:${site.email}`" class="link">{{ site.email }}</a>
+            <a v-if="site.scholar" :href="site.scholar" target="_blank" rel="noopener" class="link">scholar</a>
             <a v-for="l in site.links" :key="l.url" :href="l.url" target="_blank" rel="noopener" class="link">{{ l.label }}</a>
           </p>
         </div>

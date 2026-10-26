@@ -80,6 +80,10 @@ function onHover(index: number) {
 .cell > * {
   grid-area: 1 / 1;
   text-align: center;
+  /* The glyphs change every frame while scrambling; some browsers drop a
+     click if the node under the pointer changes mid-click. Letting the
+     pointer pass through means clicks always land on the stable .cell. */
+  pointer-events: none;
 }
 .ghost {
   visibility: hidden;
