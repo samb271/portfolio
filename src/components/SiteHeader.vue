@@ -35,7 +35,7 @@ const percent = computed(() => String(Math.round(progress.value * 100)).padStart
       </RouterLink>
 
       <div class="relative mx-2 hidden h-6 grow sm:block" aria-hidden="true">
-        <div class="absolute inset-x-0 top-1/2 border-t border-dashed border-line" />
+        <div class="absolute inset-x-0 top-1/2 border-t border-dashed border-[#1e1e1e]" />
         <img
           src="/uploads/samb.svg"
           alt=""
