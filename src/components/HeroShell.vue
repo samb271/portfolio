@@ -1,7 +1,12 @@
 <script setup lang="ts">
+import { onBeforeUnmount, onMounted, ref } from 'vue'
 import { site } from '@/content'
+import { prefersReducedMotion } from '@/composables/useShuffle'
 import ShellWindow from './ShellWindow.vue'
+import TypeText from './TypeText.vue'
 import ShuffleText from './ShuffleText.vue'
+import AsciiArt from './AsciiArt.vue'
+import { nameWide, nameStacked } from '@/content/asciiName'
 import { scrollToSection } from '@/composables/scrollToSection'
 
 const sections = [
@@ -18,56 +23,142 @@ const contactItems = [
   ...site.links.map((l) => ({ label: l.label, href: l.url, external: true })),
 ]
 
-// Load effect: the whole box appears at once as scrambled glyphs and denoises
-// from top to bottom: a character settles when the sweep reaches its height,
-// with some randomness so it still reads as noise clearing. Same glyph effect
-// as on hover. Layout is fixed from the start.
-const decode = { on: 'mount' as const, delay: 80, wave: { sweep: 900, jitter: 350 } }
+
+// Terminal: a short spinner, then each command is typed out and its output
+// prints instantly. Every character's space is reserved from the start, so
+// nothing moves while it types.
+// The name's diffusion is the loading time: the spinner runs until it settles
+// (AsciiArt emits `done`), then the commands start.
+const NAME_SPREAD_MS = 1260
+const CMD_MS = 15 // per character, commands
+const AFTER_CMD = 80 // pause before the output prints
+const AFTER_OUT = 120 // pause before the next command
+
+type Seg = { text: string; start: number; speed: number; end?: number }
+let cursor = 150 // ms after loading, first command starts
+function command(text: string): Seg {
+  const s: Seg = { text, start: cursor, speed: CMD_MS }
+  cursor += text.length * CMD_MS + AFTER_CMD
+  s.end = cursor // cursor shows until the output prints
+  return s
+}
+// Output prints all at once (speed 0), then a pause.
+function outputs(texts: string[]): Seg[] {
+  const segs = texts.map((text) => ({ text, start: cursor, speed: 0 }))
+  cursor += AFTER_OUT
+  return segs
+}
+
+const timeline = {
+  cmdAbout: command('cat about.txt'),
+  about: outputs([site.intro])[0],
+  cmdLs: command('ls'),
+  ls: outputs(sections.map((s) => s.label)),
+  cmdContact: command('contact'),
+  contact: outputs(contactItems.map((c) => c.label)),
+}
+const TOTAL = cursor
+
+/** ms since loading finished (negative while loading). */
+const elapsed = ref(-1)
+const booting = ref(true)
+const spinner = ref('|')
+let tick: ReturnType<typeof setInterval> | undefined
+let loadedAt = 0
+
+const count = (s: Seg) => {
+  if (elapsed.value < s.start) return 0
+  if (s.speed === 0) return s.text.length
+  return Math.min(s.text.length, Math.floor((elapsed.value - s.start) / s.speed))
+}
+const started = (s: Seg) => elapsed.value >= s.start
+const done = (s: Seg) => count(s) >= s.text.length
+const caret = (s: Seg) => started(s) && elapsed.value < (s.end ?? 0)
+
+onMounted(() => {
+  if (prefersReducedMotion()) return // onNameLoaded fires right away
+  const frames = ['|', '/', '-', '\\']
+  const t0 = performance.now()
+  tick = setInterval(() => {
+    const now = performance.now()
+    if (booting.value) {
+      spinner.value = frames[Math.floor((now - t0) / 90) % frames.length]
+      return
+    }
+    elapsed.value = now - loadedAt
+    if (elapsed.value > TOTAL) clearInterval(tick)
+  }, 16)
+})
+
+// Only the variant actually on screen (wide from 640px, stacked below) ends the loading.
+function onNameLoaded(variant: 'wide' | 'stacked') {
+  const wideShown = window.matchMedia('(min-width: 640px)').matches
+  if (!booting.value || (variant === 'wide') !== wideShown) return
+  booting.value = false
+  loadedAt = performance.now()
+  if (prefersReducedMotion()) elapsed.value = TOTAL
+}
+
+onBeforeUnmount(() => clearInterval(tick))
 </script>
 
 <template>
   <section class="flex min-h-[100svh] items-center py-24" aria-label="introduction">
-    <ShellWindow class="w-full" data-wave :title="`${site.handle} :: ~/home`" meta="v1.0">
+    <ShellWindow class="w-full" :title="`${site.handle} :: ~/home`" meta="v1.0">
       <div class="py-2 md:py-6">
-        <ShuffleText as="h1" :text="site.name.toLowerCase()" v-bind="decode" class="text-4xl font-medium tracking-tight text-fg sm:text-5xl lg:text-7xl" />
-        <ShuffleText as="p" :text="site.headline" v-bind="decode" class="mt-3 text-lg text-dim md:text-2xl" />
+        <h1 class="sr-only">{{ site.name }}</h1>
+        <!-- Name as ASCII art (Parabole letterforms): one line on wider screens, stacked on phones. -->
+        <AsciiArt :lines="nameWide" :spread="NAME_SPREAD_MS" class="hidden text-fg sm:block" @done="onNameLoaded('wide')" />
+        <AsciiArt :lines="nameStacked" :spread="NAME_SPREAD_MS" class="text-fg sm:hidden" @done="onNameLoaded('stacked')" />
+        <ShuffleText as="p" :text="site.headline" on="hover" class="mt-5 text-lg text-dim md:text-2xl" />
       </div>
 
       <div class="-mx-4 mt-6 border-t border-line px-4 pt-5 text-sm md:-mx-6 md:px-6">
-        <ShuffleText as="p" text="[ok] profile loaded" v-bind="decode" class="text-mute" />
+        <p v-if="booting" class="text-mute">{{ spinner }} loading profile...</p>
+        <p v-else class="text-mute">[ok] profile loaded</p>
 
         <div class="mt-4">
-          <p><span class="text-mute">$</span> <ShuffleText text="cat about.txt" v-bind="decode" /></p>
-          <ShuffleText as="p" :text="site.intro" v-bind="decode" class="max-w-2xl text-dim" />
+          <p :class="{ invisible: !started(timeline.cmdAbout) }"><span class="text-mute">$</span> <TypeText text="cat about.txt" :count="count(timeline.cmdAbout)" :caret="caret(timeline.cmdAbout)" /></p>
+          <p class="max-w-2xl text-dim"><TypeText :text="site.intro" :count="count(timeline.about)" /></p>
         </div>
 
         <div class="mt-4">
-          <p><span class="text-mute">$</span> <ShuffleText text="ls" v-bind="decode" /></p>
+          <p :class="{ invisible: !started(timeline.cmdLs) }"><span class="text-mute">$</span> <TypeText text="ls" :count="count(timeline.cmdLs)" :caret="caret(timeline.cmdLs)" /></p>
           <p class="flex flex-wrap gap-x-5 gap-y-1">
             <a
-              v-for="s in sections"
+              v-for="(s, i) in sections"
               :key="s.id"
               :href="`#${s.id}`"
               class="text-dim transition-colors hover:text-accent"
               @click="scrollToSection($event, s.id)"
-            ><ShuffleText :text="s.label" v-bind="decode" /></a>
+            ><TypeText :text="s.label" :count="count(timeline.ls[i])" /></a>
           </p>
         </div>
 
         <div class="mt-4">
-          <p><span class="text-mute">$</span> <ShuffleText text="contact" v-bind="decode" /></p>
+          <p :class="{ invisible: !started(timeline.cmdContact) }"><span class="text-mute">$</span> <TypeText text="contact" :count="count(timeline.cmdContact)" :caret="caret(timeline.cmdContact)" /></p>
           <p class="flex flex-wrap gap-x-5 gap-y-1">
             <a
-              v-for="c in contactItems"
+              v-for="(c, i) in contactItems"
               :key="c.href"
               :href="c.href"
               :target="c.external ? '_blank' : undefined"
               :rel="c.external ? 'noopener' : undefined"
-              class="link"
-            ><ShuffleText :text="c.label" v-bind="decode" /></a>
+              :class="['link', { 'is-typing': !done(timeline.contact[i]) }]"
+            ><TypeText :text="c.label" :count="count(timeline.contact[i])" /></a>
           </p>
         </div>
       </div>
     </ShellWindow>
   </section>
 </template>
+
+<style scoped>
+/* Underline and external-link arrow appear once the link is fully typed. */
+.is-typing {
+  border-bottom-color: transparent;
+}
+.is-typing::after {
+  visibility: hidden;
+}
+</style>

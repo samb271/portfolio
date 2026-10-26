@@ -1,9 +1,9 @@
 import { computed, onBeforeUnmount, ref, unref, watch, type Ref } from 'vue'
 
-const GLYPHS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*+-='
+export const GLYPHS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*+-='
 const FRAME_MS = 36
 
-const randomGlyph = () => GLYPHS[Math.floor(Math.random() * GLYPHS.length)]
+export const randomGlyph = () => GLYPHS[Math.floor(Math.random() * GLYPHS.length)]
 
 export const prefersReducedMotion = () =>
   typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
