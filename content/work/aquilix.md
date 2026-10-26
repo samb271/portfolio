@@ -1,5 +1,6 @@
 ---
 title: Aquilix
+url: https://www.aquilix.ca/en/
 period: 2025 - 2026
 order: 2
 roles:
