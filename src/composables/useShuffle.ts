@@ -12,12 +12,15 @@ export const prefersReducedMotion = () =>
  * Glyph-shuffle effect from the sam.os shell: characters scramble, then settle
  * one by one. `reveal()` animates the whole string, `scramble(i)` one character.
  */
-export function useShuffle(source: Ref<string> | string) {
+export function useShuffle(source: Ref<string> | string, startSettled = false) {
   const text = computed(() => unref(source))
   const reduced = prefersReducedMotion()
 
   // Until revealed, show blanks so monospace layout doesn't jump.
-  const chars = ref<string[]>(reduced ? text.value.split('') : text.value.split('').map((char) => (char === ' ' ? ' ' : '\u00a0')))
+  // `startSettled` shows the text right away (hover-only usage).
+  const chars = ref<string[]>(
+    reduced || startSettled ? text.value.split('') : text.value.split('').map((char) => (char === ' ' ? ' ' : '\u00a0'))
+  )
   let settleAt: number[] = []
   let timer: ReturnType<typeof setInterval> | undefined
 

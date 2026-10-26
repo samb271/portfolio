@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useActiveSection } from '@/composables/useActiveSection'
+import ShuffleText from './ShuffleText.vue'
 
 const items = ['work', 'research', 'involvement', 'play', 'blog']
 const active = useActiveSection(items)
@@ -20,7 +21,7 @@ const active = useActiveSection(items)
         active === item ? 'bg-panel-raised text-accent' : 'text-mute hover:text-fg',
       ]"
     >
-      {{ active === item ? `[${item}]` : item }}
+      <ShuffleText :text="active === item ? `[${item}]` : item" on="hover" />
     </a>
   </nav>
 </template>

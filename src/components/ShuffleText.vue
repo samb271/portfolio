@@ -6,15 +6,18 @@ const props = withDefaults(
   defineProps<{
     text: string
     as?: string
-    /** `mount`: animate immediately. `visible`: animate the first time it scrolls into view. */
-    on?: 'mount' | 'visible'
+    /**
+     * `mount`: animate immediately. `visible`: animate the first time it scrolls into view.
+     * `hover`: no load animation, only scramble under the cursor.
+     */
+    on?: 'mount' | 'visible' | 'hover'
     delay?: number
     hover?: boolean
   }>(),
   { as: 'span', on: 'visible', delay: 220, hover: true }
 )
 
-const { chars, reveal, scramble } = useShuffle(toRef(props, 'text'))
+const { chars, reveal, scramble } = useShuffle(toRef(props, 'text'), props.on === 'hover')
 
 // Group characters by word so lines only wrap between words.
 const words = computed(() => {
@@ -30,6 +33,7 @@ const root = ref<HTMLElement | null>(null)
 let observer: IntersectionObserver | null = null
 
 onMounted(() => {
+  if (props.on === 'hover') return
   if (props.on === 'mount' || !('IntersectionObserver' in window) || !root.value) {
     reveal(props.delay)
     return

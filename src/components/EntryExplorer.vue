@@ -33,7 +33,7 @@ const items = computed(() => props.entries.map((e) => ({ id: e.slug, label: (e.s
           <article v-for="role in entry.roles" :key="role.title" class="mt-8">
             <p class="flex flex-wrap items-baseline gap-x-3 text-fg">
               <span class="text-mute">$</span>
-              <span>{{ role.title }}</span>
+              <ShuffleText :text="role.title" on="hover" />
               <span v-if="role.year" class="text-xs text-mute">[{{ role.year }}]</span>
             </p>
             <div class="prose mt-3" v-html="role.body" />

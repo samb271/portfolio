@@ -1,11 +1,13 @@
 <script setup lang="ts">
+import ShuffleText from './ShuffleText.vue'
+
 defineProps<{ title?: string; meta?: string }>()
 </script>
 
 <template>
   <div class="shell-window border border-line-strong bg-panel">
     <div class="flex items-center justify-between gap-4 border-b border-line px-3.5 py-2 text-xs text-mute">
-      <span class="truncate"><slot name="title">{{ title }}</slot></span>
+      <span class="truncate"><slot name="title"><ShuffleText v-if="title" :text="title" on="hover" /></slot></span>
       <span class="shrink-0"><slot name="meta">{{ meta }}</slot></span>
     </div>
     <div class="p-4 md:p-6">
