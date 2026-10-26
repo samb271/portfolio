@@ -17,11 +17,6 @@ const sections = [
   { id: 'blog', label: 'blog/' },
 ]
 
-const contactItems = [
-  { label: site.email, href: `mailto:${site.email}`, external: false },
-  ...(site.scholar ? [{ label: 'scholar', href: site.scholar, external: true }] : []),
-  ...site.links.map((l) => ({ label: l.label, href: l.url, external: true })),
-]
 
 
 // Terminal: a short spinner, then each command is typed out and its output
@@ -54,8 +49,6 @@ const timeline = {
   about: outputs([site.intro])[0],
   cmdLs: command('ls'),
   ls: outputs(sections.map((s) => s.label)),
-  cmdContact: command('contact'),
-  contact: outputs(contactItems.map((c) => c.label)),
 }
 const TOTAL = cursor
 
@@ -72,7 +65,6 @@ const count = (s: Seg) => {
   return Math.min(s.text.length, Math.floor((elapsed.value - s.start) / s.speed))
 }
 const started = (s: Seg) => elapsed.value >= s.start
-const done = (s: Seg) => count(s) >= s.text.length
 const caret = (s: Seg) => started(s) && elapsed.value < (s.end ?? 0)
 
 onMounted(() => {
@@ -134,31 +126,7 @@ onBeforeUnmount(() => clearInterval(tick))
             ><TypeText :text="s.label" :count="count(timeline.ls[i])" /></a>
           </p>
         </div>
-
-        <div class="mt-4">
-          <p :class="{ invisible: !started(timeline.cmdContact) }"><span class="text-mute">$</span> <TypeText text="contact" :count="count(timeline.cmdContact)" :caret="caret(timeline.cmdContact)" /></p>
-          <p class="flex flex-wrap gap-x-5 gap-y-1">
-            <a
-              v-for="(c, i) in contactItems"
-              :key="c.href"
-              :href="c.href"
-              :target="c.external ? '_blank' : undefined"
-              :rel="c.external ? 'noopener' : undefined"
-              :class="['link', { 'is-typing': !done(timeline.contact[i]) }]"
-            ><TypeText :text="c.label" :count="count(timeline.contact[i])" /></a>
-          </p>
-        </div>
       </div>
     </ShellWindow>
   </section>
 </template>
-
-<style scoped>
-/* Underline and external-link arrow appear once the link is fully typed. */
-.is-typing {
-  border-bottom-color: transparent;
-}
-.is-typing::after {
-  visibility: hidden;
-}
-</style>
