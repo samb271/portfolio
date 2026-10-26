@@ -6,7 +6,7 @@ import ShellWindow from './ShellWindow.vue'
 import TypeText from './TypeText.vue'
 import ShuffleText from './ShuffleText.vue'
 import AsciiArt from './AsciiArt.vue'
-import { nameWide, nameStacked } from '@/content/asciiName'
+import { nameWide, nameShort } from '@/content/asciiName'
 import { scrollToSection } from '@/composables/scrollToSection'
 
 const sections = [
@@ -90,8 +90,8 @@ onMounted(() => {
   }, 16)
 })
 
-// Only the variant actually on screen (wide from 640px, stacked below) ends the loading.
-function onNameLoaded(variant: 'wide' | 'stacked') {
+// Only the variant actually on screen (wide from 640px, short below) ends the loading.
+function onNameLoaded(variant: 'wide' | 'short') {
   const wideShown = window.matchMedia('(min-width: 640px)').matches
   if (!booting.value || (variant === 'wide') !== wideShown) return
   booting.value = false
@@ -107,9 +107,9 @@ onBeforeUnmount(() => clearInterval(tick))
     <ShellWindow class="w-full" :title="`${site.handle} :: ~/home`" meta="v1.0">
       <div class="py-2 md:py-6">
         <h1 class="sr-only">{{ site.name }}</h1>
-        <!-- Name as ASCII art (Parabole letterforms): one line on wider screens, stacked on phones. -->
+        <!-- Name as ASCII art (Parabole letterforms): full name on wider screens, "sam b." on phones. -->
         <AsciiArt :lines="nameWide" :spread="NAME_SPREAD_MS" class="hidden text-fg sm:block" @done="onNameLoaded('wide')" />
-        <AsciiArt :lines="nameStacked" :spread="NAME_SPREAD_MS" class="text-fg sm:hidden" @done="onNameLoaded('stacked')" />
+        <AsciiArt :lines="nameShort" :spread="NAME_SPREAD_MS" class="text-fg sm:hidden" @done="onNameLoaded('short')" />
         <ShuffleText as="p" :text="site.headline" on="hover" class="mt-5 text-lg text-dim md:text-2xl" />
       </div>
 

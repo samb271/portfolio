@@ -69,7 +69,28 @@ onMounted(() => {
   run()
 })
 
-onBeforeUnmount(() => clearInterval(timer))
+// Size the text so the widest line fills the container exactly, using the
+// glyph width the browser actually rendered (the CSS rule is only an estimate).
+let resize: ResizeObserver | undefined
+function fit() {
+  const el = pre.value
+  const available = el?.parentElement?.clientWidth ?? 0
+  if (!el || !available) return // hidden variant: nothing to measure
+  el.style.fontSize = '100px'
+  const natural = el.scrollWidth
+  if (natural) el.style.fontSize = `${(100 * available) / natural}px`
+}
+onMounted(() => {
+  fit()
+  resize = new ResizeObserver(fit)
+  if (pre.value?.parentElement) resize.observe(pre.value.parentElement)
+  document.fonts?.ready.then(fit)
+})
+
+onBeforeUnmount(() => {
+  clearInterval(timer)
+  resize?.disconnect()
+})
 
 // Hover: scramble a small patch of characters under the cursor.
 const pre = ref<HTMLElement | null>(null)
@@ -113,6 +134,9 @@ function onMove(event: MouseEvent) {
   margin: 0;
   line-height: 1;
   letter-spacing: 0;
+  /* JetBrains Mono ligatures would merge runs like == or -> into one glyph. */
+  font-variant-ligatures: none;
+  font-feature-settings: 'liga' 0, 'calt' 0;
   white-space: pre;
   overflow: hidden;
   cursor: default;
