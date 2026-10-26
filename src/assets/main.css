@@ -5,16 +5,9 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: 'Parabole Display';
-  src: url(./fonts/Parabole/ParaboleTrial-DisplayRegular.otf) format('opentype');
-  font-display: swap;
-}
-
 /* One place to retheme the whole site. */
 :root {
   --font-mono: 'JetBrains Mono', 'Courier New', Courier, monospace;
-  --font-display: 'Parabole Display', var(--font-mono);
 
   --bg: #0a0a0a;
   --panel: #121212;

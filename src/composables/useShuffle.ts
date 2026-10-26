@@ -46,14 +46,22 @@ export function useShuffle(source: Ref<string> | string, startSettled = false) {
     if (!timer) timer = setInterval(paint, FRAME_MS)
   }
 
-  function reveal(baseDelay = 220) {
+  /**
+   * Scramble everything, then settle each character.
+   * `spread` > 0: every character settles at a random moment within that many
+   * ms (a "diffusion" decode, no reading order). Otherwise it settles roughly
+   * left to right.
+   */
+  function reveal(baseDelay = 220, spread = 0) {
     if (reduced) {
       chars.value = text.value.split('')
       return
     }
     const now = performance.now()
     const step = Math.min(18, 700 / Math.max(1, text.value.length))
-    settleAt = text.value.split('').map((_, i) => now + baseDelay + Math.random() * 260 + i * step)
+    settleAt = text.value
+      .split('')
+      .map((_, i) => now + baseDelay + (spread > 0 ? Math.random() * spread : Math.random() * 260 + i * step))
     run()
   }
 

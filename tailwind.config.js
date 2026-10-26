@@ -3,7 +3,7 @@ module.exports = {
   content: ['./index.html', './src/**/*.{vue,js,ts}'],
   theme: {
     extend: {
-      fontFamily: { mono: ['var(--font-mono)'], display: ['var(--font-display)'] },
+      fontFamily: { mono: ['var(--font-mono)'] },
       colors: {
         bg: 'var(--bg)',
         panel: 'var(--panel)',

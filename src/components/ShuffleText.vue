@@ -12,9 +12,11 @@ const props = withDefaults(
      */
     on?: 'mount' | 'visible' | 'hover'
     delay?: number
+    /** Random-order decode over this many ms (0 = left-to-right). */
+    spread?: number
     hover?: boolean
   }>(),
-  { as: 'span', on: 'visible', delay: 220, hover: true }
+  { as: 'span', on: 'visible', delay: 220, spread: 0, hover: true }
 )
 
 const { chars, reveal, scramble } = useShuffle(toRef(props, 'text'), props.on === 'hover')
@@ -35,13 +37,13 @@ let observer: IntersectionObserver | null = null
 onMounted(() => {
   if (props.on === 'hover') return
   if (props.on === 'mount' || !('IntersectionObserver' in window) || !root.value) {
-    reveal(props.delay)
+    reveal(props.delay, props.spread)
     return
   }
   observer = new IntersectionObserver(
     ([entry]) => {
       if (!entry.isIntersecting) return
-      reveal(props.delay)
+      reveal(props.delay, props.spread)
       observer?.disconnect()
     },
     { rootMargin: '0px 0px -8% 0px' }
