@@ -14,12 +14,18 @@ const props = withDefaults(
     delay?: number
     /** Random-order decode over this many ms (0 = left-to-right). */
     spread?: number
+    /**
+     * Top-to-bottom decode: each character settles according to its height
+     * inside the nearest `[data-wave]` ancestor, swept over `sweep` ms, plus
+     * up to `jitter` ms of randomness. Overrides `spread`.
+     */
+    wave?: { sweep: number; jitter: number }
     hover?: boolean
   }>(),
   { as: 'span', on: 'visible', delay: 220, spread: 0, hover: true }
 )
 
-const { chars, reveal, scramble } = useShuffle(toRef(props, 'text'), props.on === 'hover')
+const { chars, reveal, revealAt, scramble } = useShuffle(toRef(props, 'text'), props.on === 'hover')
 
 // Group characters by word so lines only wrap between words.
 const words = computed(() => {
@@ -34,8 +40,27 @@ const words = computed(() => {
 const root = ref<HTMLElement | null>(null)
 let observer: IntersectionObserver | null = null
 
+function revealWave(wave: { sweep: number; jitter: number }) {
+  const el = root.value as HTMLElement
+  const box = (el.closest('[data-wave]') as HTMLElement | null) ?? el
+  const area = box.getBoundingClientRect()
+  const cells = [...el.querySelectorAll<HTMLElement>('.cell')] // one per non-space character
+  let next = 0
+  const offsets = props.text.split('').map((char) => {
+    if (char === ' ') return 0
+    const cell = cells[next++]
+    const y = cell ? cell.getBoundingClientRect().top - area.top : 0
+    return props.delay + (y / Math.max(1, area.height)) * wave.sweep + Math.random() * wave.jitter
+  })
+  revealAt(offsets)
+}
+
 onMounted(() => {
   if (props.on === 'hover') return
+  if (props.wave && root.value) {
+    revealWave(props.wave)
+    return
+  }
   if (props.on === 'mount' || !('IntersectionObserver' in window) || !root.value) {
     reveal(props.delay, props.spread)
     return

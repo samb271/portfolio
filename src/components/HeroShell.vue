@@ -18,16 +18,16 @@ const contactItems = [
   ...site.links.map((l) => ({ label: l.label, href: l.url, external: true })),
 ]
 
-// Load effect: the whole box appears at once as scrambled glyphs, and every
-// character settles at a random moment within DECODE_MS (a "diffusion"
-// decode). Same glyph effect as on hover. Layout is fixed from the start.
-const DECODE_MS = 1100
-const decode = { on: 'mount' as const, delay: 100, spread: DECODE_MS }
+// Load effect: the whole box appears at once as scrambled glyphs and denoises
+// from top to bottom: a character settles when the sweep reaches its height,
+// with some randomness so it still reads as noise clearing. Same glyph effect
+// as on hover. Layout is fixed from the start.
+const decode = { on: 'mount' as const, delay: 80, wave: { sweep: 900, jitter: 350 } }
 </script>
 
 <template>
   <section class="flex min-h-[100svh] items-center py-24" aria-label="introduction">
-    <ShellWindow class="w-full" :title="`${site.handle} :: ~/home`" meta="v1.0">
+    <ShellWindow class="w-full" data-wave :title="`${site.handle} :: ~/home`" meta="v1.0">
       <div class="py-2 md:py-6">
         <ShuffleText as="h1" :text="site.name.toLowerCase()" v-bind="decode" class="text-4xl font-medium tracking-tight text-fg sm:text-5xl lg:text-7xl" />
         <ShuffleText as="p" :text="site.headline" v-bind="decode" class="mt-3 text-lg text-dim md:text-2xl" />

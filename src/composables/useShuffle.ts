@@ -65,6 +65,17 @@ export function useShuffle(source: Ref<string> | string, startSettled = false) {
     run()
   }
 
+  /** Scramble everything, then settle character i after offsets[i] ms. */
+  function revealAt(offsets: number[]) {
+    if (reduced) {
+      chars.value = text.value.split('')
+      return
+    }
+    const now = performance.now()
+    settleAt = offsets.map((offset) => now + offset)
+    run()
+  }
+
   function scramble(index: number) {
     if (reduced || text.value[index] === ' ' || text.value[index] === undefined) return
     settleAt[index] = performance.now() + 140 + Math.random() * 170
@@ -75,5 +86,5 @@ export function useShuffle(source: Ref<string> | string, startSettled = false) {
 
   onBeforeUnmount(stop)
 
-  return { chars, reveal, scramble }
+  return { chars, reveal, revealAt, scramble }
 }
