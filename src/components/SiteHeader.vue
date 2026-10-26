@@ -3,6 +3,9 @@ import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import { site } from '@/content'
 
+// Reuses the GitHub entry from the links list in site.yaml.
+const github = site.links.find((l) => l.label.toLowerCase() === 'github')
+
 // Scroll progress, 0..1. Drives the avatar along the track like a load bar.
 const progress = ref(0)
 
@@ -26,7 +29,7 @@ const percent = computed(() => String(Math.round(progress.value * 100)).padStart
 
 <template>
   <header class="fixed inset-x-0 top-0 z-50 border-b border-line bg-bg">
-    <div class="mx-auto flex h-[var(--header-h)] max-w-6xl items-center gap-4 px-5 text-sm md:px-10">
+    <div class="mx-auto flex h-[var(--header-h)] max-w-6xl items-center gap-3 px-4 text-sm sm:gap-4 sm:px-5 md:px-10">
       <RouterLink to="/" class="shrink-0 text-fg transition-colors hover:text-accent">
         {{ site.name.toLowerCase() }}
       </RouterLink>
@@ -42,9 +45,10 @@ const percent = computed(() => String(Math.round(progress.value * 100)).padStart
       </div>
       <span class="hidden w-10 text-right text-xs text-mute sm:block" aria-hidden="true">{{ percent }}%</span>
 
-      <nav class="ml-auto flex items-center gap-3 sm:ml-0">
-        <a v-if="site.scholar" :href="site.scholar" target="_blank" rel="noopener" class="btn">scholar</a>
-        <a :href="`mailto:${site.email}`" class="btn">contact</a>
+      <nav class="ml-auto flex items-center gap-1.5 sm:ml-0 sm:gap-3">
+        <a v-if="site.scholar" :href="site.scholar" target="_blank" rel="noopener" class="btn max-sm:px-2">scholar</a>
+        <a v-if="github" :href="github.url" target="_blank" rel="noopener" class="btn max-sm:px-2">github</a>
+        <a :href="`mailto:${site.email}`" class="btn max-sm:px-2">contact</a>
       </nav>
     </div>
   </header>
