@@ -1,6 +1,7 @@
 ---
 title: Montreal Robotics Summer School (Mila)
 short: MRSS
+url: https://sites.google.com/mila.quebec/mrss/
 period: 2025 - 2026
 order: 1
 roles:
