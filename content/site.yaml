@@ -1,0 +1,26 @@
+name: Samuel Barbeau
+handle: sam.os
+headline: phd student in machine learning, montreal.
+intro: Hi! I'm Sam, a PhD student in machine learning at ÉTS Montréal, supervised by Christian Desrosiers and Nicolas Thome. I work on world models and language-conditioned planning, and hold a bachelor's in software engineering from ÉTS.
+email: samuelpbarbeau@gmail.com
+# Google Scholar profile URL; the header button appears once this is set.
+scholar: https://scholar.google.com/citations?user=P9Kmq3cAAAAJ
+links:
+  - label: github
+    url: https://github.com/samb271
+sections:
+  work:
+    title: Work
+    intro: ""
+  research:
+    title: Research
+    intro: PhD student in machine learning at ÉTS Montréal (LIVIA), supervised by Christian Desrosiers and Nicolas Thome. I work on world models, language-conditioned planning and test-time adaptation.
+  involvement:
+    title: Involvement
+    intro: ""
+  play:
+    title: Play
+    intro: Work hard, play hard. Here are a few things I like to do to keep my mind fresh.
+  blog:
+    title: Blog
+    intro: Notes, experiments and longer thoughts.

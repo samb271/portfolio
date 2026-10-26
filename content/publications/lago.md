@@ -1,0 +1,10 @@
+---
+title: "LAGO: Latent Goal Prediction from Language for Model-Based Planning"
+authors: [Samuel Barbeau, Simon Roy, Giovanni Beltrame, Christian Desrosiers, Nicolas Thome]
+venue: Preprint, under review
+tag: preprint
+date: "2026-05"
+tldr: A hierarchical JEPA world model that turns a language instruction into a sequence of latent subgoals and plans toward them, more than doubling the success rate of a goal-conditioned behavior cloning baseline on long-horizon navigation.
+arxiv: "2606.20627"
+---
+Joint-Embedding Predictive Architectures (JEPAs) enable agents to plan in latent space by imagining the outcomes of candidate actions, yet task specification remains a bottleneck. Visual targets provide precise local gradients but poor distant guidance, while language is flexible yet limited by noisy cross-modal alignment or dependence on distinct large generative models. We introduce LAGO (Latent Goal Prediction from Language), a hierarchical world model in which a single predictor both forecasts action-conditioned dynamics and grounds language instructions as sequences of intermediate latent subgoals, training both modes with a single regression objective over a shared latent space. At each planning step, LAGO predicts a sequence of latent subgoals from a language instruction and optimizes an action sequence using a soft-minimum alignment cost that rewards subgoal proximity without enforcing a rigid path. Subgoals are repredicted as the agent's state evolves, turning a single long-horizon instruction into a sequence of locally tractable objectives. Across environments spanning navigation and manipulation, LAGO outperforms flat and hierarchical image-goal planners, with the largest gains on long-horizon navigation with curved, hazard-constrained paths, where it more than doubles the success rate of a goal-conditioned behavior cloning policy trained on the same demonstrations. Grounding language in the world model's own latent space also outperforms vision-language reward models, including one that plans with ground-truth dynamics.

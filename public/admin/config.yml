@@ -1,0 +1,186 @@
+# Admin panel for samuelbarbeau.com — open /admin/ on the live site.
+# Every save is a commit to GitHub, which triggers a normal redeploy.
+backend:
+  name: github
+  repo: samb271/portfolio
+  branch: master
+
+media_folder: public/uploads
+public_folder: /uploads
+site_url: https://samuelbarbeau.com
+
+collections:
+  # ---------------------------------------------------------------- settings
+  - name: settings
+    label: Site settings
+    icon: settings
+    files:
+      - name: site
+        label: Site
+        file: content/site.yaml
+        format: yaml
+        fields:
+          - { name: name, label: Name, widget: string }
+          - { name: handle, label: "Window title (e.g. sam.os)", widget: string }
+          - { name: headline, label: Headline, widget: string }
+          - { name: intro, label: "About (hero text)", widget: text }
+          - { name: email, label: Email, widget: string }
+          - { name: scholar, label: "Google Scholar URL", widget: string, required: false, hint: "Shown as a button in the header." }
+          - name: links
+            label: Links
+            widget: list
+            fields:
+              - { name: label, label: Label, widget: string }
+              - { name: url, label: URL, widget: string }
+          - name: sections
+            label: Section titles
+            widget: object
+            fields:
+              - name: work
+                label: Work
+                widget: object
+                fields:
+                  - { name: title, label: Title, widget: string }
+                  - { name: intro, label: Intro, widget: text, required: false }
+              - name: research
+                label: Research
+                widget: object
+                fields:
+                  - { name: title, label: Title, widget: string }
+                  - { name: intro, label: Intro, widget: text, required: false }
+              - name: involvement
+                label: Involvement
+                widget: object
+                fields:
+                  - { name: title, label: Title, widget: string }
+                  - { name: intro, label: Intro, widget: text, required: false }
+              - name: play
+                label: Play
+                widget: object
+                fields:
+                  - { name: title, label: Title, widget: string }
+                  - { name: intro, label: Intro, widget: text, required: false }
+              - name: blog
+                label: Blog
+                widget: object
+                fields:
+                  - { name: title, label: Title, widget: string }
+                  - { name: intro, label: Intro, widget: text, required: false }
+
+  # ---------------------------------------------------------------- work
+  - &entry
+    name: work
+    label: Work
+    label_singular: Job
+    icon: work
+    folder: content/work
+    create: true
+    extension: md
+    format: yaml-frontmatter
+    slug: "{{slug}}"
+    sortable_fields: [order, title]
+    summary: "{{title}} — {{period}}"
+    fields:
+      - { name: title, label: "Organization", widget: string }
+      - { name: short, label: "Menu label (optional)", widget: string, required: false, hint: "Short name for the side menu, e.g. an acronym. The full name shows in the box." }
+      - { name: url, label: Website, widget: string, required: false }
+      - { name: period, label: "Period (e.g. 2024 - Current)", widget: string }
+      - { name: order, label: "Order (1 = first)", widget: number, value_type: int, default: 10 }
+      - { name: tags, label: Tools, widget: list, required: false }
+      - name: roles
+        label: Roles
+        widget: list
+        summary: "{{title}} ({{year}})"
+        fields:
+          - { name: title, label: Title, widget: string }
+          - { name: year, label: Year, widget: string, required: false }
+          - { name: body, label: Description, widget: markdown }
+      - { name: body, label: "Extra notes (optional)", widget: markdown, required: false }
+
+  # ---------------------------------------------------------------- publications
+  - name: publications
+    label: Publications
+    label_singular: Publication
+    icon: article
+    folder: content/publications
+    create: true
+    extension: md
+    format: yaml-frontmatter
+    slug: "{{slug}}"
+    sortable_fields: [date, title]
+    summary: "[{{tag}}] {{title}}"
+    fields:
+      - { name: title, label: Title, widget: string }
+      - name: authors
+        label: Authors
+        widget: list
+        hint: "Full names in paper order. Add * after a name for equal contribution. Your name is highlighted automatically."
+      - { name: venue, label: "Venue (full)", widget: string, hint: "e.g. Conference on Neural Information Processing Systems (NeurIPS)" }
+      - { name: tag, label: "Tag (short)", widget: string, hint: "e.g. NeurIPS 2025, or preprint" }
+      - { name: date, label: "Date (YYYY-MM)", widget: string, pattern: ['^\d{4}-\d{2}$', "Use YYYY-MM"] }
+      - { name: featured, label: "Featured at the top", widget: boolean, default: false, required: false }
+      - { name: tldr, label: "TL;DR (shown when featured)", widget: text, required: false }
+      - { name: arxiv, label: "arXiv id (e.g. 2606.20627)", widget: string, required: false, hint: "Adds arxiv + pdf links and fills the BibTeX." }
+      - name: links
+        label: "Other links (code, project page, ...)"
+        widget: list
+        required: false
+        fields:
+          - { name: label, label: Label, widget: string }
+          - { name: url, label: URL, widget: string }
+      - { name: bibtex, label: "BibTeX (optional override)", widget: code, default_language: bibtex, output_code_only: true, required: false }
+      - { name: body, label: Abstract, widget: markdown, required: false }
+
+  # ---------------------------------------------------------------- involvement
+  - <<: *entry
+    name: involvement
+    label: Involvement
+    label_singular: Involvement
+    icon: groups
+    folder: content/involvement
+
+  # ---------------------------------------------------------------- play
+  - name: play
+    label: Play
+    label_singular: Hobby
+    icon: sports_esports
+    folder: content/play
+    create: true
+    extension: md
+    format: yaml-frontmatter
+    slug: "{{slug}}"
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: period, label: Period, widget: string, required: false }
+      - { name: order, label: Order, widget: number, value_type: int, default: 10 }
+      - { name: tags, label: Tools, widget: list, required: false }
+      - name: releases
+        label: "Releases (album grid)"
+        widget: list
+        required: false
+        summary: "{{title}}"
+        fields:
+          - { name: title, label: Title, widget: string }
+          - { name: cover, label: Cover, widget: image }
+          - { name: link, label: Link, widget: string }
+      - { name: body, label: Description, widget: markdown }
+
+  # ---------------------------------------------------------------- blog
+  - name: blog
+    label: Blog
+    label_singular: Post
+    icon: edit_note
+    folder: content/blog
+    create: true
+    extension: md
+    format: yaml-frontmatter
+    slug: "{{slug}}"
+    sortable_fields: [date, title]
+    summary: "{{date}} — {{title}}"
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: date, label: Date, widget: datetime, format: "YYYY-MM-DD", time_format: false }
+      - { name: summary, label: "One-line summary", widget: string, required: false }
+      - { name: tags, label: Tags, widget: list, required: false }
+      - { name: draft, label: "Draft (hidden on live site)", widget: boolean, default: true }
+      - { name: body, label: Body, widget: markdown }

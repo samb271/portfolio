@@ -1,32 +1,21 @@
 /** @type {import('tailwindcss').Config} */
-const colors = require('tailwindcss/colors')
 module.exports = {
-  mode: 'jit',
-  content: [ 
-    "./index.html",
-    "./src/**/*.{vue,js,ts,jsx,tsx}",
-  ],
+  content: ['./index.html', './src/**/*.{vue,js,ts}'],
   theme: {
-    fontFamily: {
-      paraboleText: ["Parabole Text", "sans-serif"],
-      paraboleDisplay: ["Parabole Display", "sans-serif"],
+    extend: {
+      fontFamily: { mono: ['var(--font-mono)'], display: ['var(--font-display)'] },
+      colors: {
+        bg: 'var(--bg)',
+        panel: 'var(--panel)',
+        'panel-raised': 'var(--panel-raised)',
+        line: 'var(--line)',
+        'line-strong': 'var(--line-strong)',
+        fg: 'var(--text)',
+        dim: 'var(--text-dim)',
+        mute: 'var(--text-mute)',
+        accent: 'var(--accent)',
+      },
     },
-    extend: {},
-    colors: {
-      ...colors,
-      text: {
-        'primary': '#FFFFFF',
-        'secondary': '#D0D0D0'
-      },
-      navbar: {
-        'text': '#000000',
-        'background': '#D9D9D9',
-        'textSelected': '#FFFFFF',
-        'contrast': '#000000'
-      },
-      'background': '#334155',
-      'titlePill': '#5DA432'
-    }
   },
   plugins: [],
 }

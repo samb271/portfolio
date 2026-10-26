@@ -1,13 +1,130 @@
+@import '@fontsource/jetbrains-mono/400.css';
+@import '@fontsource/jetbrains-mono/500.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @font-face {
-  font-family: "Parabole Display";
-  src: url(../assets/fonts/Parabole/ParaboleTrial-DisplayRegular.otf);
+  font-family: 'Parabole Display';
+  src: url(./fonts/Parabole/ParaboleTrial-DisplayRegular.otf) format('opentype');
+  font-display: swap;
 }
 
-@font-face {
-  font-family: "Parabole Text";
-  src: url(../assets/fonts/Parabole/ParaboleTrial-TextRegular.otf);
+/* One place to retheme the whole site. */
+:root {
+  --font-mono: 'JetBrains Mono', 'Courier New', Courier, monospace;
+  --font-display: 'Parabole Display', var(--font-mono);
+
+  --bg: #0a0a0a;
+  --panel: #121212;
+  --panel-raised: #1a1a1a;
+  --line: #2d2d2d;
+  --line-strong: #454545;
+
+  --text: #f2f2f2;
+  --text-dim: #b7b7b7;
+  --text-mute: #878787;
+
+  --accent: #7dffff;
+  --accent-soft: rgba(125, 255, 255, 0.08);
+
+  --header-h: 3.25rem;
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-h) + 1.5rem);
+  background: var(--bg);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (min-width: 768px) {
+  body { font-size: 15px; }
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+a { color: inherit; text-decoration: none; }
+
+:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Thin terminal-style scrollbars */
+* { scrollbar-width: thin; scrollbar-color: var(--line-strong) transparent; }
+
+/* Hyperlink style used inside text: underline + accent on hover */
+.link {
+  color: var(--text);
+  border-bottom: 1px solid var(--line-strong);
+  transition: color 0.15s, border-color 0.15s;
+}
+.link:hover { color: var(--accent); border-color: var(--accent); }
+
+/* Bracketed button: [ label ] */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.2rem 0.65rem;
+  border: 1px solid var(--line-strong);
+  color: var(--text-dim);
+  background: transparent;
+  font: inherit;
+  font-size: 0.85em;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s, background-color 0.15s;
+}
+.btn:hover, .btn.is-active {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+
+/* Rendered Markdown (bodies, roles, blog posts) */
+.prose { color: var(--text-dim); }
+.prose > * + * { margin-top: 1em; }
+.prose a { color: var(--text); border-bottom: 1px solid var(--line-strong); transition: color .15s, border-color .15s; }
+.prose a:hover { color: var(--accent); border-color: var(--accent); }
+.prose strong { color: var(--text); font-weight: 500; }
+.prose em { color: var(--text-mute); }
+.prose h2, .prose h3, .prose h4 { color: var(--text); font-weight: 500; margin-top: 2em; }
+.prose h2::before { content: '## '; color: var(--text-mute); }
+.prose h3::before { content: '### '; color: var(--text-mute); }
+.prose ul { list-style: none; padding-left: 1.25em; }
+.prose ul > li::before { content: '-'; color: var(--text-mute); position: absolute; margin-left: -1.25em; }
+.prose ol { list-style: decimal; padding-left: 1.5em; }
+.prose li + li { margin-top: 0.35em; }
+.prose blockquote { border-left: 1px solid var(--line-strong); padding-left: 1em; color: var(--text-mute); }
+.prose code { color: var(--text); background: var(--panel-raised); padding: 0.1em 0.35em; font-size: 0.92em; }
+.prose pre { background: var(--panel); border: 1px solid var(--line); padding: 1em; overflow-x: auto; }
+.prose pre code { background: none; padding: 0; }
+.prose img { max-width: 100%; border: 1px solid var(--line); }
+.prose hr { border: 0; border-top: 1px dashed var(--line-strong); }
+.prose table { width: 100%; border-collapse: collapse; font-size: 0.9em; }
+.prose th, .prose td { border: 1px solid var(--line); padding: 0.4em 0.6em; text-align: left; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
 }

@@ -1,21 +1,11 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import Header from '../src/components/Header.vue'
-import Navbar from '../src/components/Navbar.vue'
+import { RouterView } from 'vue-router'
+import SiteHeader from '@/components/SiteHeader.vue'
+import SiteFooter from '@/components/SiteFooter.vue'
 </script>
 
 <template>
-  <div class="background">
-    <Header></Header>
-    <RouterView />
-    <Navbar/>
-  </div>
+  <SiteHeader />
+  <RouterView />
+  <SiteFooter />
 </template>
-
-<style>
-.background {
-  background-color: #334155;
-}
-</style>
-
-
