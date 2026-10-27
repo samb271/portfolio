@@ -9,7 +9,7 @@ import BlogExplorer from '@/components/BlogExplorer.vue'
   <main class="mx-auto max-w-6xl px-5 pt-32 md:px-10">
     <RouterLink to="/" class="text-sm text-mute transition-colors hover:text-accent">$ cd ~</RouterLink>
     <div class="mt-8">
-      <SectionHeading index="--" id="blog" :title="site.sections.blog.title" :intro="site.sections.blog.intro" />
+      <SectionHeading :title="site.sections.blog.title" :intro="site.sections.blog.intro" />
     </div>
     <BlogExplorer :posts="posts" />
   </main>

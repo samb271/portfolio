@@ -116,7 +116,7 @@ collections:
         widget: list
         hint: "Full names in paper order. Add * after a name for equal contribution. Your name is highlighted automatically."
       - { name: venue, label: "Venue (full)", widget: string, hint: "e.g. Conference on Neural Information Processing Systems (NeurIPS)" }
-      - { name: tag, label: "Tag (short)", widget: string, hint: "e.g. NeurIPS 2025, or preprint" }
+      - { name: tag, label: "Tag (short)", widget: string, hint: "e.g. NeurIPS 2025, or Preprint" }
       - { name: date, label: "Date (YYYY-MM)", widget: string, pattern: ['^\d{4}-\d{2}$', "Use YYYY-MM"] }
       - { name: featured, label: "Featured at the top", widget: boolean, default: false, required: false }
       - { name: tldr, label: "TL;DR (shown when featured)", widget: text, required: false }

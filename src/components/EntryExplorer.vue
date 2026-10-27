@@ -10,16 +10,16 @@ const props = defineProps<{ dir: string; entries: Entry[] }>()
 
 const selected = ref(props.entries[0]?.slug ?? '')
 const entry = computed(() => props.entries.find((e) => e.slug === selected.value))
-const items = computed(() => props.entries.map((e) => ({ id: e.slug, label: (e.short || e.title).toLowerCase() })))
+const items = computed(() => props.entries.map((e) => ({ id: e.slug, label: e.short || e.title })))
 </script>
 
 <template>
   <div class="flex flex-col gap-6 md:flex-row md:gap-10">
     <FileList v-model="selected" :dir="dir" :items="items" />
 
-    <ShellWindow v-if="entry" :key="entry.slug" class="min-w-0 grow" :title="`~/${dir}/${entry.slug}.md`" :meta="entry.period?.toLowerCase()">
+    <ShellWindow v-if="entry" :key="entry.slug" class="min-w-0 grow" :title="`~/${dir}/${entry.slug}.md`" :meta="entry.period">
       <div class="max-w-3xl">
-          <h3 class="text-xl uppercase text-fg md:text-2xl">
+          <h3 class="text-xl text-fg md:text-2xl">
             <a v-if="entry.url" :href="entry.url" target="_blank" rel="noopener" class="link">
               <ShuffleText :text="entry.title" on="mount" :delay="0" />
             </a>

@@ -47,9 +47,9 @@ const percent = computed(() => String(Math.round(progress.value * 100)).padStart
       <span class="hidden w-10 text-right text-xs text-mute sm:block" aria-hidden="true">{{ percent }}%</span>
 
       <nav class="header-nav ml-auto flex items-center gap-1.5 sm:ml-0 sm:gap-3">
-        <a v-if="site.scholar" :href="site.scholar" target="_blank" rel="noopener" class="btn max-sm:px-2">scholar</a>
-        <a v-if="github" :href="github.url" target="_blank" rel="noopener" class="btn max-sm:px-2">github</a>
-        <a :href="`mailto:${site.email}`" class="btn max-sm:px-2">contact</a>
+        <a v-if="site.scholar" :href="site.scholar" target="_blank" rel="noopener" class="btn max-sm:px-2">Scholar</a>
+        <a v-if="github" :href="github.url" target="_blank" rel="noopener" class="btn max-sm:px-2">GitHub</a>
+        <a :href="`mailto:${site.email}`" class="btn max-sm:px-2">Contact</a>
       </nav>
     </div>
   </header>

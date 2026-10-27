@@ -4,6 +4,7 @@ import ShuffleText from './ShuffleText.vue'
 import { scrollToSection } from '@/composables/scrollToSection'
 
 const items = ['work', 'research', 'involvement', 'play', 'blog']
+const label = (id: string) => id[0].toUpperCase() + id.slice(1)
 const active = useActiveSection(items)
 </script>
 
@@ -23,7 +24,7 @@ const active = useActiveSection(items)
         active === item ? 'bg-active text-accent' : 'text-mute hover:text-fg',
       ]"
     >
-      <ShuffleText :text="active === item ? `[${item}]` : item" on="hover" />
+      <ShuffleText :text="active === item ? `[${label(item)}]` : label(item)" on="hover" />
     </a>
   </nav>
 </template>

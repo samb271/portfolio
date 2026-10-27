@@ -2,7 +2,7 @@
 title: "DINO-CVA: A Multimodal Goal-Conditioned Vision-to-Action Model for Autonomous Catheter Navigation"
 authors: [Pedram Fekri, Majid Roshanfar, Samuel Barbeau, Seyedfarzad Famouri, Thomas Looi, Dale Podolsky, Mehrdad Zadeh, Javad Dargahi]
 venue: Preprint
-tag: preprint
+tag: Preprint
 date: "2025-10"
 arxiv: "2510.17038"
 ---

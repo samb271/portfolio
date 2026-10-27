@@ -16,27 +16,27 @@ const s = site.sections
     <HeroShell />
 
     <section id="work" class="pt-16">
-      <SectionHeading index="01" id="work" :title="s.work.title" :intro="s.work.intro" />
+      <SectionHeading :title="s.work.title" :intro="s.work.intro" />
       <EntryExplorer dir="work" :entries="work" />
     </section>
 
     <section id="research" class="pt-32">
-      <SectionHeading index="02" id="research" :title="s.research.title" :intro="s.research.intro" />
+      <SectionHeading :title="s.research.title" :intro="s.research.intro" />
       <PublicationList :publications="publications" />
     </section>
 
     <section id="involvement" class="pt-32">
-      <SectionHeading index="03" id="involvement" :title="s.involvement.title" :intro="s.involvement.intro" />
+      <SectionHeading :title="s.involvement.title" :intro="s.involvement.intro" />
       <EntryExplorer dir="involvement" :entries="involvement" />
     </section>
 
     <section id="play" class="pt-32">
-      <SectionHeading index="04" id="play" :title="s.play.title" :intro="s.play.intro" />
+      <SectionHeading :title="s.play.title" :intro="s.play.intro" />
       <PlayList :hobbies="play" />
     </section>
 
     <section id="blog" class="pt-32">
-      <SectionHeading index="05" id="blog" :title="s.blog.title" :intro="s.blog.intro" />
+      <SectionHeading :title="s.blog.title" :intro="s.blog.intro" />
       <BlogExplorer :posts="posts" />
     </section>
   </main>

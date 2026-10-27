@@ -7,7 +7,7 @@ defineProps<{ tags?: string[] }>()
     <li
       v-for="tag in tags"
       :key="tag"
-      class="border border-line px-2 py-0.5 lowercase text-mute"
+      class="border border-line px-2 py-0.5 text-mute"
     >
       {{ tag }}
     </li>

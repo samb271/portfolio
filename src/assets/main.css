@@ -5,6 +5,24 @@
 @tailwind components;
 @tailwind utilities;
 
+/* JetBrains Mono's own up-right arrow (U+2197). The packaged font files leave
+   it out, so without this each device drew the arrow from a different system
+   font. Subset of the official JetBrains Mono release (OFL), 560 bytes. */
+/* Declared once per weight: browsers group a family's faces by their exact
+   weight, so a single "400 500" range face would never join the 400/500 sets. */
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url(./fonts/jetbrains-mono-arrow.woff2) format('woff2');
+  font-weight: 400;
+  unicode-range: U+2197;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url(./fonts/jetbrains-mono-arrow.woff2) format('woff2');
+  font-weight: 500;
+  unicode-range: U+2197;
+}
+
 /* One place to retheme the whole site. */
 :root {
   --font-mono: 'JetBrains Mono', 'Courier New', Courier, monospace;
@@ -81,7 +99,9 @@ a[target='_blank']:not(.no-arrow)::after,
   content: '\2197\FE0E';
   display: inline-block;
   margin-left: 0.3em;
-  font-size: 0.85em;
+  /* Lower the glyph so its middle sits just above the lowercase middle
+     (measured: arrow center 0.48em, x-height center 0.275em above baseline). */
+  vertical-align: -0.18em;
   color: var(--text-mute);
   transition: color 0.15s, transform 0.15s;
 }

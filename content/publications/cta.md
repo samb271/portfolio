@@ -2,7 +2,7 @@
 title: "CTA: Cross-Task Alignment for Better Test Time Training"
 authors: [Samuel Barbeau, Pedram Fekri, David Osowiechi, Ali Bahri, Moslem Yazdanpanah, Masih Aminbeidokhti, Christian Desrosiers]
 venue: Preprint, under review
-tag: preprint
+tag: Preprint
 date: "2025-07"
 arxiv: "2507.05221"
 ---

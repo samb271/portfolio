@@ -7,15 +7,6 @@ import TypeText from './TypeText.vue'
 import ShuffleText from './ShuffleText.vue'
 import AsciiArt from './AsciiArt.vue'
 import { nameWide, nameShort } from '@/content/asciiName'
-import { scrollToSection } from '@/composables/scrollToSection'
-
-const sections = [
-  { id: 'work', label: 'work/' },
-  { id: 'research', label: 'research/' },
-  { id: 'involvement', label: 'involvement/' },
-  { id: 'play', label: 'play/' },
-  { id: 'blog', label: 'blog/' },
-]
 
 
 
@@ -47,8 +38,6 @@ function outputs(texts: string[]): Seg[] {
 const timeline = {
   cmdAbout: command('cat about.txt'),
   about: outputs([site.intro])[0],
-  cmdLs: command('ls'),
-  ls: outputs(sections.map((s) => s.label)),
 }
 const TOTAL = cursor
 
@@ -112,19 +101,6 @@ onBeforeUnmount(() => clearInterval(tick))
         <div class="mt-4">
           <p :class="{ invisible: !started(timeline.cmdAbout) }"><span class="text-mute">$</span> <TypeText text="cat about.txt" :count="count(timeline.cmdAbout)" :caret="caret(timeline.cmdAbout)" /></p>
           <p class="max-w-2xl text-dim"><TypeText :text="site.intro" :count="count(timeline.about)" /></p>
-        </div>
-
-        <div class="mt-4">
-          <p :class="{ invisible: !started(timeline.cmdLs) }"><span class="text-mute">$</span> <TypeText text="ls" :count="count(timeline.cmdLs)" :caret="caret(timeline.cmdLs)" /></p>
-          <p class="flex flex-wrap gap-x-5 gap-y-1">
-            <a
-              v-for="(s, i) in sections"
-              :key="s.id"
-              :href="`#${s.id}`"
-              class="text-dim transition-colors hover:text-accent"
-              @click="scrollToSection($event, s.id)"
-            ><TypeText :text="s.label" :count="count(timeline.ls[i])" /></a>
-          </p>
         </div>
       </div>
     </ShellWindow>

@@ -2,7 +2,7 @@
 title: "LAGO: Latent Goal Prediction from Language for Model-Based Planning"
 authors: [Samuel Barbeau, Simon Roy, Giovanni Beltrame, Christian Desrosiers, Nicolas Thome]
 venue: Preprint, under review
-tag: preprint
+tag: Preprint
 date: "2026-05"
 tldr: A hierarchical JEPA world model that turns a language instruction into a sequence of latent subgoals and plans toward them, more than doubling the success rate of a goal-conditioned behavior cloning baseline on long-horizon navigation.
 arxiv: "2606.20627"

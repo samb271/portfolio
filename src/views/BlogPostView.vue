@@ -9,7 +9,7 @@ const props = defineProps<{ slug: string }>()
 const post = computed(() => posts.find((p) => p.slug === props.slug))
 
 watchEffect(() => {
-  document.title = post.value ? `${post.value.title} — ${site.name}` : `not found — ${site.name}`
+  document.title = post.value ? `${post.value.title} — ${site.name}` : `Not found — ${site.name}`
 })
 </script>
 
@@ -21,7 +21,7 @@ watchEffect(() => {
       <header class="border-b border-line pb-8">
         <p class="text-xs text-mute">
           {{ post.date }} <span class="text-line-strong">//</span> {{ readingTime(post) }}
-          <span v-if="post.draft" class="ml-2 text-accent">[draft]</span>
+          <span v-if="post.draft" class="ml-2 text-accent">[Draft]</span>
         </p>
         <ShuffleText as="h1" :text="post.title" on="mount" class="mt-3 text-3xl font-medium tracking-tight text-fg md:text-5xl" />
         <p v-if="post.summary" class="mt-4 text-dim">{{ post.summary }}</p>

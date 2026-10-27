@@ -25,8 +25,8 @@ const hasEqual = (p: Publication) => p.authors.some((a) => a.endsWith('*'))
 function links(p: Publication) {
   const out = []
   if (p.arxiv) {
-    out.push({ label: 'arxiv', url: `https://arxiv.org/abs/${p.arxiv}` })
-    out.push({ label: 'pdf', url: `https://arxiv.org/pdf/${p.arxiv}` })
+    out.push({ label: 'arXiv', url: `https://arxiv.org/abs/${p.arxiv}` })
+    out.push({ label: 'PDF', url: `https://arxiv.org/pdf/${p.arxiv}` })
   }
   return [...out, ...(p.links ?? [])]
 }
@@ -41,7 +41,7 @@ function bibtex(p: Publication) {
     p.arxiv ? ['journal', `arXiv preprint arXiv:${p.arxiv}`] : ['booktitle', p.venue],
     ['year', year(p)],
   ]
-  const kind = p.arxiv && p.tag === 'preprint' ? 'article' : 'inproceedings'
+  const kind = p.arxiv && p.tag.toLowerCase() === 'preprint' ? 'article' : 'inproceedings'
   return `@${kind}{${first}${year(p)}${word},\n${fields.map(([k, v]) => `  ${k} = {${v}}`).join(',\n')}\n}`
 }
 
@@ -67,12 +67,12 @@ async function copy(p: Publication) {
   <div class="flex flex-col gap-14">
     <!-- Featured: what a skimming visitor should see first -->
     <div v-if="featured.length" class="flex flex-col gap-6">
-      <ShellWindow v-for="p in featured" :key="p.slug" :title="`~/research/featured/${p.slug}.md`" :meta="p.tag.toLowerCase()">
+      <ShellWindow v-for="p in featured" :key="p.slug" :title="`~/research/featured/${p.slug}.md`" :meta="p.tag">
         <h3 class="text-lg text-fg md:text-xl">{{ p.title }}</h3>
         <p class="mt-2 text-sm text-mute">
           <template v-for="(a, i) in p.authors" :key="a"><span :class="isMe(a) ? 'text-fg underline decoration-line-strong underline-offset-4' : ''">{{ a }}</span>{{ i < p.authors.length - 1 ? ', ' : '' }}</template>
         </p>
-        <p v-if="p.tldr" class="mt-4 max-w-3xl text-dim"><span class="text-mute">tl;dr</span> {{ p.tldr }}</p>
+        <p v-if="p.tldr" class="mt-4 max-w-3xl text-dim"><span class="text-mute">TL;DR</span> {{ p.tldr }}</p>
         <p class="mt-5 flex flex-wrap gap-2">
           <a v-for="l in links(p)" :key="l.url" :href="l.url" target="_blank" rel="noopener" class="btn">{{ l.label }}</a>
         </p>
@@ -86,7 +86,7 @@ async function copy(p: Publication) {
       <ShellWindow class="min-w-0 grow" :title="`~/research/${selectedYear}/`" :meta="`${visible.length} ${visible.length === 1 ? 'paper' : 'papers'}`">
         <ul>
           <li v-for="p in visible" :key="p.slug" class="grid gap-x-6 gap-y-2 py-5 first:pt-0 last:pb-0 lg:grid-cols-[8.5rem_1fr]">
-            <span class="h-min w-fit border border-line px-2 py-0.5 text-xs lowercase text-mute lg:mt-0.5">{{ p.tag }}</span>
+            <span class="h-min w-fit border border-line px-2 py-0.5 text-xs text-mute lg:mt-0.5">{{ p.tag }}</span>
             <div class="min-w-0">
               <p class="text-fg">{{ p.title }}</p>
               <p class="mt-1 text-sm text-mute">
@@ -99,17 +99,17 @@ async function copy(p: Publication) {
               <p class="mt-3 flex flex-wrap gap-2 text-xs">
                 <a v-for="l in links(p)" :key="l.url" :href="l.url" target="_blank" rel="noopener" class="btn">{{ l.label }}</a>
                 <button v-if="p.body" type="button" :class="['btn', { 'is-active': open[p.slug] === 'abstract' }]" :aria-expanded="open[p.slug] === 'abstract'" @click="toggle(p.slug, 'abstract')">
-                  {{ open[p.slug] === 'abstract' ? '-' : '+' }} abstract
+                  {{ open[p.slug] === 'abstract' ? '-' : '+' }} Abstract
                 </button>
                 <button type="button" :class="['btn', { 'is-active': open[p.slug] === 'bibtex' }]" :aria-expanded="open[p.slug] === 'bibtex'" @click="toggle(p.slug, 'bibtex')">
-                  {{ open[p.slug] === 'bibtex' ? '-' : '+' }} bibtex
+                  {{ open[p.slug] === 'bibtex' ? '-' : '+' }} BibTeX
                 </button>
               </p>
 
               <div v-if="open[p.slug] === 'abstract'" class="prose mt-4 max-w-3xl text-sm" v-html="p.body" />
               <div v-if="open[p.slug] === 'bibtex'" class="mt-4 max-w-3xl">
                 <pre class="overflow-x-auto border border-line bg-panel p-4 text-xs text-dim">{{ bibtex(p) }}</pre>
-                <button type="button" class="btn mt-2 text-xs" @click="copy(p)">{{ copied[p.slug] ? 'copied' : 'copy' }}</button>
+                <button type="button" class="btn mt-2 text-xs" @click="copy(p)">{{ copied[p.slug] ? 'Copied' : 'Copy' }}</button>
               </div>
             </div>
           </li>

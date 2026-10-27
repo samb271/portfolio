@@ -23,7 +23,7 @@ const router = createRouter({
 })
 
 router.afterEach((to) => {
-  if (to.name !== 'post') document.title = to.name === 'blog' ? `${site.sections.blog.title.toLowerCase()} — ${site.name}` : site.name
+  if (to.name !== 'post') document.title = to.name === 'blog' ? `${site.sections.blog.title} — ${site.name}` : site.name
 })
 
 export default router
