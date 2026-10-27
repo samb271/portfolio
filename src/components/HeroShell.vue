@@ -16,8 +16,8 @@ import { nameWide, nameShort } from '@/content/asciiName'
 // The name's diffusion is the loading time: the spinner runs until it settles
 // (AsciiArt emits `done`), then the commands start.
 const NAME_SPREAD_MS = 1260
-const CMD_MS = 15 // per character, commands
-const AFTER_CMD = 80 // pause before the output prints
+const CMD_MS = 40 // per character, commands
+const AFTER_CMD = 180 // pause before the output prints
 const AFTER_OUT = 120 // pause before the next command
 
 type Seg = { text: string; start: number; speed: number; end?: number }
